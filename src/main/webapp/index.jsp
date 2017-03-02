@@ -1,17 +1,31 @@
 <%-- 
-    Document   : index
-    Created on : Mar 2, 2017, 6:29:24 PM
+    Document   : login
+    Created on : Feb 24, 2017, 2:05:03 PM
     Author     : supanattechasothon
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<style>
+    body{
+        background-color:#FAFAFA;
+    }
+</style>
+
+<div class="container_new">
+    <div class="set_box_height_auto col_pixel_6 set_box_margin_center_page  set_margin_container_default_60">
+        <h2 class="set_text_align_center set_text_color_1 set_font_weight_bold">Login</h2>
+        <form  method="POST" > 
+            <div class="form_group_row">
+                <label></label>
+                <input type="text" id="form_login_email" placeholder="Username" class="form_control_textField set_text_align_center" data-parsley-required="true">
+            </div>
+            <div class="form_group_row">
+                
+                <input type="text" id="form_login_password" placeholder="Password" class="form_control_textField set_text_align_center" data-parsley-required="true">
+            </div>
+            <div class="form_group_row set_text_align_center">
+                <a href="/Student/Index" class="set_btn_confirm_md_backgroundWhite" type="submit">Login</a>
+            </div>
+        </form>
+
+    </div>
+</div>
