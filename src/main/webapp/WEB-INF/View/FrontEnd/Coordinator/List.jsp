@@ -16,7 +16,7 @@ page import="Models.*;"
         <div class="title">
             <div class="container_new">
                 <span class="topic">Request for AU Service</span>
-                <a class="set_float_right set_btn_confirm_sm_backgroundWhite" href="/Student/Create">Create new request</a>
+                <a class="set_float_right set_btn_confirm_sm_backgroundWhite" href="/Coordinator/Create">Create new request</a>
             </div>
         </div>
         <div class="container_new">
