@@ -34,7 +34,7 @@ page import="Models.*;"
                                         <%
                                             //FormModel formRequest = ((FormGroupModel)${request}).getFormList().get(0);
                                         %>
-                                        <a href="/Approval_Project_2017/Coordinator/Details" class="box_each_requested">
+                                        <a href="/Coordinator/Details" class="box_each_requested">
                                                 <div class="box_info_top">
                                                     <div class="set_float_left">
                                                         <span class="event_name">${request.basic_form.event_name}</span>
