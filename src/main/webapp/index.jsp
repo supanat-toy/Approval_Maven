@@ -23,7 +23,7 @@
                 <input type="text" id="form_login_password" placeholder="Password" class="form_control_textField set_text_align_center" data-parsley-required="true">
             </div>
             <div class="form_group_row set_text_align_center">
-                <a href="/Student/Index" class="set_btn_confirm_md_backgroundWhite" type="submit">Login</a>
+                <a href="/Coordinator" class="set_btn_confirm_md_backgroundWhite" type="submit">Login</a>
             </div>
         </form>
 
