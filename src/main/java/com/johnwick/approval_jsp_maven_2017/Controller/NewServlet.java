@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//package Controller;
-package Controller;
+package com.johnwick.approval_jsp_maven_2017.Controller;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,12 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author supanattechasothon
  */
-@WebServlet(name="AdminDirector", 
-            loadOnStartup = 1,
-            urlPatterns = { "/AdminDirector", 
-                            "/AdminDirector/Details"
-})
-public class AdminDirectorServlet extends HttpServlet {
+@WebServlet(name = "NewServlet", urlPatterns = {"/NewServlet"})
+public class NewServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +37,10 @@ public class AdminDirectorServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AdminDirectorServlet</title>");            
+            out.println("<title>Servlet NewServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AdminDirectorServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,26 +58,7 @@ public class AdminDirectorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userPath = request.getServletPath();
-
-       
-        if (userPath.equals("/AdminDirector")) {
-            userPath += "/List";
-            
-            
-            
-        } else if (userPath.equals("/AdminDirector/Details")) {
-            
-        }
-
-
-        String url = "/WEB-INF/View/FrontEnd" + userPath + ".jsp";
-
-        try {
-            request.getRequestDispatcher(url).forward(request, response);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -95,25 +72,7 @@ public class AdminDirectorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userPath = request.getServletPath();
-
-       
-        if (userPath.equals("/AdminDirector")) {
-            userPath += "/List";
-            
-            
-        } else if (userPath.equals("/AdminDirector/Details")) {
-            
-        }
-
-
-        String url = "/WEB-INF/View/FrontEnd" + userPath + ".jsp";
-
-        try {
-            request.getRequestDispatcher(url).forward(request, response);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        processRequest(request, response);
     }
 
     /**
