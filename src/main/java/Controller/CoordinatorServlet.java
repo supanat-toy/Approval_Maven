@@ -111,7 +111,7 @@ public class CoordinatorServlet extends HttpServlet {
         // if addToCart action is called
          if (userPath.equals("/Coordinator")) {
             userPath = "/List";
-            System.out.println("count: "+FormProvider.getAllRequests(8).size());
+            //System.out.println("count: "+FormProvider.getAllRequests(8).size());
             
         } else if (userPath.equals("/Coordinator/Create")) {
             
