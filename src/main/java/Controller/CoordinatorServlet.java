@@ -13,8 +13,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Models.*;
-import Providers.*;
 
 /**
  *
@@ -72,7 +70,7 @@ public class CoordinatorServlet extends HttpServlet {
        
         if (userPath.equals("/Coordinator")) {
             userPath += "/List";
-            request.setAttribute("getAllRequests",FormProvider.getAllRequests(8));
+            //request.setAttribute("getAllRequests",FormProvider.getAllRequests(8));
           
         } else if (userPath.equals("/Coordinator/Create")) {
             

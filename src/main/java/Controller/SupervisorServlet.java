@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import Providers.FormProvider;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -68,7 +67,7 @@ public class SupervisorServlet extends HttpServlet {
        
         if (userPath.equals("/Supervisor")) {
             userPath += "/List";
-            request.setAttribute("getAllRequests",FormProvider.getAllRequests(8));
+            //request.setAttribute("getAllRequests",FormProvider.getAllRequests(8));
             
         }
          else if (userPath.equals("/Supervisor/Details")) {

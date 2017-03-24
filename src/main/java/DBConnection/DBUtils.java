@@ -4,21 +4,24 @@
  * and open the template in the editor.
  */
 package DBConnection;
-
-import Models.FormGroupModel;
-import Models.FormModel;
-import Providers.FormProvider;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Properties;
 
 /**
  *
  * Video:  https://www.youtube.com/watch?v=DN3VAZdhLik
  */
 public class DBUtils {
+    
+    private static Connection connection = null;
+    
     public static Connection getConnection(){
         if(connection != null){
             return connection;
