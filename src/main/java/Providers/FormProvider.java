@@ -26,8 +26,7 @@ public class FormProvider {
                 form.setDepartment(result.getString("department"));
                 form.setFacility(result.getString("facility"));
                 form.setPreparing_date(result.getDate("preparing_date"));
-                form.setStarting_date(result.getDate("starting_date"));
-                
+                form.setStarting_date(result.getDate("starting_date"));            
             }
         }catch(Exception e){
             e.printStackTrace();
