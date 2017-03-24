@@ -63,7 +63,6 @@ public class SupervisorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String userPath = request.getServletPath();
-
        
         if (userPath.equals("/Supervisor")) {
             userPath += "/List";
