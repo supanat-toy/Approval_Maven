@@ -6,11 +6,7 @@
 package Providers;
 
 import Models.*;
-<<<<<<< HEAD
-import com.sun.javafx.scene.control.skin.VirtualFlow;
-=======
 import DBConnection.DBUtils;
->>>>>>> 3864da27e67750490d4ee8929a9e8cd152aa88f1
 import java.sql.ResultSet;
 import java.util.*;
 
@@ -19,13 +15,8 @@ import java.util.*;
  * @author SONY
  */
 public class FormProvider {
-<<<<<<< HEAD
-
-    public static mForm getForm(int form_id) {
-=======
     
     public static mForm getFormDetails(int form_id){
->>>>>>> 3864da27e67750490d4ee8929a9e8cd152aa88f1
         mForm form = new mForm();
         try {
             ResultSet result = DBUtils.getPreparedStatement("select * from form where form.form_id = " + form_id).executeQuery();
@@ -51,6 +42,7 @@ public class FormProvider {
                 form.setApproved_by_admin(result.getInt("approved_by_admin"));
                 form.setIs_approved_admin(result.getBoolean("is_approved_admin"));
                 form.setStarting_date(result.getDate("starting_date"));
+                break;
             }
         } catch (Exception e) {
             e.printStackTrace();
