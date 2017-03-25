@@ -24,10 +24,10 @@ import java.util.List;
  */
 public class DetailsProvider {
     
-    public static final int COORDINATOR = 1, SUPERVISOR = 2, ADMIN = 3, PROPERTIES = 4, TECHNICAL = 5, SOUNDANDLIGHT = 6, ARTSANDCULTURE = 7, SECURITY = 8, IT = 9;
+    public final int COORDINATOR = 1, SUPERVISOR = 2, ADMIN = 3, PROPERTIES = 4, TECHNICAL = 5, SOUNDANDLIGHT = 6, ARTSANDCULTURE = 7, SECURITY = 8, IT = 9;
     
     
-    public static mForm getFormDetails(int form_id){
+    public mForm getFormDetails(int form_id){
         mForm form = new mForm();
         try {
             ResultSet result = DBUtils.getPreparedStatement("select * from form where form.form_id = " + form_id).executeQuery();
@@ -61,7 +61,7 @@ public class DetailsProvider {
         return form;
     }
 
-    public static ArrayList<mResponseMessage> GetResponseMessageList(int form_id, int form_type_id){
+    public ArrayList<mResponseMessage> GetResponseMessageList(int form_id, int form_type_id){
         ArrayList<mResponseMessage> responseMessageList = new ArrayList<mResponseMessage>();
         
         String queryStatement = "select form_department_id from form_department where form_id=? and form_type_id=?";
@@ -88,7 +88,7 @@ public class DetailsProvider {
         return responseMessageList;
     }
     
-    public static ArrayList<mResponseMessage> GetResponseMessageList_ByForm_department_id(int form_id, int form_department_id){
+    public ArrayList<mResponseMessage> GetResponseMessageList_ByForm_department_id(int form_id, int form_department_id){
         
         ArrayList<mResponseMessage> responseMessageList = new ArrayList<mResponseMessage>();
         
@@ -119,7 +119,7 @@ public class DetailsProvider {
         
         return responseMessageList;
     }
-    public static mResult AddResponseMessage(int user_id,int form_id, int form_department_id, String message){
+    public mResult AddResponseMessage(int user_id,int form_id, int form_department_id, String message){
         mResult result = new mResult();
         
         String queryStatement = "INSERT INTO response_message(form_id,form_department_id,message,created_date,created_by,updated_date,updated_by) VALUES (?, ?, ?, ?, ?,?,?)";
@@ -149,7 +149,7 @@ public class DetailsProvider {
         return result;
     }
     
-    public static mResult ApprovedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
+    public mResult ApprovedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
         mResult result = new mResult();
        
         
@@ -190,7 +190,7 @@ public class DetailsProvider {
         return result;
     }
     
-    public static mResult RejectedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
+    public mResult RejectedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
         mResult result = new mResult();
         
         try{
@@ -231,7 +231,7 @@ public class DetailsProvider {
         return result;
     }
     
-    public static mResult DeleteFormByID(int form_id) throws SQLException{
+    public mResult DeleteFormByID(int form_id) throws SQLException{
         mResult result = new mResult();
         
         String queryStatement = "delete form where form_id=?";
@@ -256,43 +256,43 @@ public class DetailsProvider {
         return result;
     }
     
-    public static mFormDepartment GetFormDetails_Properties(int form_id){     
+    public mFormDepartment GetFormDetails_Properties(int form_id){     
         mFormDepartment formDepartment = new mFormDepartment();
         formDepartment = GetFormDetails_department(form_id,1);
         return formDepartment;
     }
     
-    public static mFormDepartment GetFormDetails_Technical(int form_id){
+    public mFormDepartment GetFormDetails_Technical(int form_id){
         mFormDepartment formDepartment = new mFormDepartment();
         formDepartment = GetFormDetails_department(form_id,2);
         return formDepartment;
     }
     
-    public static mFormDepartment GetFormDetails_SoundAndLight(int form_id){     
+    public mFormDepartment GetFormDetails_SoundAndLight(int form_id){     
         mFormDepartment formDepartment = new mFormDepartment();
         formDepartment = GetFormDetails_department(form_id,3);    
         return formDepartment;
     }
     
-    public static mFormDepartment GetFormDetails_ArtAndCulture(int form_id){     
+    public mFormDepartment GetFormDetails_ArtAndCulture(int form_id){     
         mFormDepartment formDepartment = new mFormDepartment();
         formDepartment = GetFormDetails_department(form_id,4);    
         return formDepartment;
     }
     
-    public static mFormDepartment GetFormDetails_Security(int form_id){     
+    public mFormDepartment GetFormDetails_Security(int form_id){     
         mFormDepartment formDepartment = new mFormDepartment();
         formDepartment = GetFormDetails_department(form_id,5);    
         return formDepartment;
     }
     
-    public static mFormDepartment GetFormDetails_IT(int form_id){
+    public mFormDepartment GetFormDetails_IT(int form_id){
         mFormDepartment formDepartment = new mFormDepartment();
         formDepartment = GetFormDetails_department(form_id,6);
         return formDepartment;
     }
     
-    public static mFormDepartment GetFormDetails_department(int form_id, int form_type_id){
+    public mFormDepartment GetFormDetails_department(int form_id, int form_type_id){
         
         mFormDepartment formDepartment = new mFormDepartment();
         String[] form_department_nameList = {"" ,"Properties", "Technical", "Sound & Light","Art & Culture", "Security", "IT"};
@@ -331,7 +331,7 @@ public class DetailsProvider {
         return formDepartment;
     }
     
-    public static List<mRequestedItem> GetFormDetails_requestedItemList(int form_department_id){
+    public List<mRequestedItem> GetFormDetails_requestedItemList(int form_department_id){
         ArrayList<mRequestedItem> requestedItemList = new ArrayList<mRequestedItem>();
         
         String queryStatement = "select * from request_item inner join item on request_item.item_id = item.item_id where form_department_id=?";

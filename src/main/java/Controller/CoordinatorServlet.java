@@ -13,6 +13,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import Functions.*;
+import Models.*;
+import Providers.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -26,61 +31,49 @@ import javax.servlet.http.HttpServletResponse;
 })
 public class CoordinatorServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CoordinatorServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CoordinatorServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    UserProfileFunctions userProfileFunctions = new UserProfileFunctions();
+    DetailsProvider detailsProvider = new DetailsProvider();
+    ListProvider listProvider = new ListProvider();
+    CreateProvider createProvider = new CreateProvider();
+    UserProvider userProvider = new UserProvider();
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         String userPath = request.getServletPath();
-
+        mUser userProfile = userProfileFunctions.GetUserProfile(request);
        
         if (userPath.equals("/Coordinator")) {
             userPath += "/List";
-            //request.setAttribute("getAllRequests",FormProvider.getAllRequests(8));
+            List<mFormDisplay> formDisplayList = listProvider.getForms(userProfile.getUser_id());
+            request.setAttribute("formDisplayList", formDisplayList);
           
         } else if (userPath.equals("/Coordinator/Create")) {
             
             
         } else if (userPath.equals("/Coordinator/Details")) {
+            int id = Integer.parseInt(request.getParameter("id"));
             
+            mForm formDetails = detailsProvider.getFormDetails(id);
+            mFormDepartment formDepartment_artAndCulture = detailsProvider.GetFormDetails_ArtAndCulture(id);
+            mFormDepartment formDepartment_IT = detailsProvider.GetFormDetails_IT(id);
+            mFormDepartment formDepartment_properties = detailsProvider.GetFormDetails_Properties(id);
+            mFormDepartment formDepartment_secuity = detailsProvider.GetFormDetails_Security(id);
+            mFormDepartment formDepartment_soundAndLight = detailsProvider.GetFormDetails_SoundAndLight(id);
+            mFormDepartment formDepartment_technical = detailsProvider.GetFormDetails_Technical(id);
+            
+            request.setAttribute("formDetails", formDetails);
+            request.setAttribute("formDepartment_artAndCulture", formDepartment_artAndCulture);
+            request.setAttribute("formDepartment_IT", formDepartment_IT);
+            request.setAttribute("formDepartment_properties", formDepartment_properties);
+            request.setAttribute("formDepartment_secuity", formDepartment_secuity);
+            request.setAttribute("formDepartment_soundAndLight", formDepartment_soundAndLight);
+            request.setAttribute("formDepartment_technical", formDepartment_technical);
         }
 
 
-        String url = "/WEB-INF/View/FrontEnd" + userPath + ".jsp";
+        String url = "/WEB-INF/View/Web" + userPath + ".jsp";
 
         try {
             request.getRequestDispatcher(url).forward(request, response);
@@ -92,20 +85,14 @@ public class CoordinatorServlet extends HttpServlet {
         //processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         String userPath = request.getServletPath();
-
+        mUser userProfile = userProfileFunctions.GetUserProfile(request);
+        
         // if addToCart action is called
          if (userPath.equals("/Coordinator")) {
             userPath = "/List";
@@ -120,7 +107,7 @@ public class CoordinatorServlet extends HttpServlet {
         }
 
 
-        String url = "/WEB-INF/View/FrontEnd" + userPath + ".jsp";
+        String url = "/WEB-INF/View/Web" + userPath + ".jsp";
 
         try {
             request.getRequestDispatcher(url).forward(request, response);
