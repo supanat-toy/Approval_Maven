@@ -12,7 +12,7 @@ package Models;
 public class mRequestedItem {
     private int form_department_id;
     private int form_type_id;
-    private int image_url;
+    private String image_url;
     private String name;
     private int item_id;
     private int quantity;
@@ -36,11 +36,11 @@ public class mRequestedItem {
         this.form_type_id = form_type_id;
     }
 
-    public int getImage_url() {
+    public String getImage_url() {
         return image_url;
     }
 
-    public void setImage_url(int image_url) {
+    public void setImage_url(String image_url) {
         this.image_url = image_url;
     }
 
