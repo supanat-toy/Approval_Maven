@@ -17,6 +17,8 @@ import java.util.*;
  */
 public class ToyProvider {
     
+    private static final int COORDINATOR = 1, SUPERVISOR = 2, ADMIN = 3, PROPERTIES = 4, TECHNICAL = 5, SOUNDANDLIGHT = 6, ARTSANDCULTURE = 7, SECURITY = 8, IT = 9;
+    
     public static ArrayList<mResponseMessage> GetResponseMessageList(int form_id, int form_type_id){
         ArrayList<mResponseMessage> responseMessageList = new ArrayList<mResponseMessage>();
         
@@ -92,8 +94,7 @@ public class ToyProvider {
             ps.setInt(7, 0);
             
             ResultSet queryResult = ps.executeQuery();
-            
-            //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
+
             while(queryResult.next()){            
                   
                break; 
@@ -107,30 +108,14 @@ public class ToyProvider {
         return result;
     }
     
-
     public static mResult ApprovedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
         mResult result = new mResult();
+       
         
-        String queryStatement = "select * from form where form_id=?";
-     
-        try{
-            PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
-            ps.setInt(1, form_id);
-            
-            ResultSet queryResult = ps.executeQuery();
-            
-            //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
-            while(queryResult.next()){            
-               
-               
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
         try{
         PreparedStatement ps = null;
         if (responsible_form_type_id == 3){ // approve by supervisor
-            queryStatement = "update form set   is_approved_supervisor = ? and "
+            String queryStatement = "update form set   is_approved_supervisor = ? and "
                     + "                         approved_date_supervisor = ? and  "
                     + "                         approved_by_supervisor = ?"
                     + "                         where form_id= ? ";
@@ -141,7 +126,7 @@ public class ToyProvider {
             ps.setDate(form_id, (java.sql.Date) new Date());
         }
         else if(responsible_form_type_id == 4){ // approve by admin
-            queryStatement = "update form set   is_approved_admin = ? and "
+            String queryStatement = "update form set   is_approved_admin = ? and "
                     + "                         approved_date_admin = ? and  "
                     + "                         approved_by_admin = ?"
                     + "                         where form_id= ? ";
@@ -167,26 +152,11 @@ public class ToyProvider {
     public static mResult RejectedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
         mResult result = new mResult();
         
-        String queryStatement = "select * from form where form_id=?";
-     
         try{
-            PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
-            ps.setInt(1, form_id);
+            PreparedStatement ps = null;
             
-            ResultSet queryResult = ps.executeQuery();
-            
-            //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
-            while(queryResult.next()){            
-               
-               
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        try{
-        PreparedStatement ps = null;
-        if (responsible_form_type_id == 3){ // approve by supervisor
-            queryStatement = "update form set   is_approved_supervisor = ? and "
+        if (responsible_form_type_id == SUPERVISOR){ // approve by supervisor
+            String queryStatement = "update form set   is_approved_supervisor = ? and "
                     + "                         approved_date_supervisor = ? and  "
                     + "                         approved_by_supervisor = ?"
                     + "                         where form_id= ? ";
@@ -196,8 +166,8 @@ public class ToyProvider {
             ps.setInt(2, user_id);
             ps.setDate(form_id, (java.sql.Date) new Date());
         }
-        else if(responsible_form_type_id == 4){ // approve by admin
-            queryStatement = "update form set   is_approved_admin = ? and "
+        else if(responsible_form_type_id == ADMIN){ // approve by admin
+            String queryStatement = "update form set   is_approved_admin = ? and "
                     + "                         approved_date_admin = ? and  "
                     + "                         approved_by_admin = ?"
                     + "                         where form_id= ? ";
@@ -245,19 +215,68 @@ public class ToyProvider {
         return result;
     }
     
+    public static mFormDepartment GetFormDetails_Properties(int form_id){     
+        mFormDepartment formDepartment = new mFormDepartment();
+        formDepartment = GetFormDetails_department(form_id,1);
+        return formDepartment;
+    }
+    
+    public static mFormDepartment GetFormDetails_Technical(int form_id){
+        mFormDepartment formDepartment = new mFormDepartment();
+        formDepartment = GetFormDetails_department(form_id,2);
+        return formDepartment;
+    }
+    
+    public static mFormDepartment GetFormDetails_SoundAndLight(int form_id){     
+        mFormDepartment formDepartment = new mFormDepartment();
+        formDepartment = GetFormDetails_department(form_id,3);    
+        return formDepartment;
+    }
+    
+    public static mFormDepartment GetFormDetails_ArtAndCulture(int form_id){     
+        mFormDepartment formDepartment = new mFormDepartment();
+        formDepartment = GetFormDetails_department(form_id,4);    
+        return formDepartment;
+    }
+    
+    public static mFormDepartment GetFormDetails_Security(int form_id){     
+        mFormDepartment formDepartment = new mFormDepartment();
+        formDepartment = GetFormDetails_department(form_id,5);    
+        return formDepartment;
+    }
+    
     public static mFormDepartment GetFormDetails_IT(int form_id){
         mFormDepartment formDepartment = new mFormDepartment();
+        formDepartment = GetFormDetails_department(form_id,6);
+        return formDepartment;
+    }
+    
+    public static mFormDepartment GetFormDetails_department(int form_id, int form_type_id){
         
-        String queryStatement = "select form_department_id from form_department where form_id=? and form_type_id=?";
+        mFormDepartment formDepartment = new mFormDepartment();
+        String[] form_department_nameList = {"" ,"Properties", "Technical", "Sound & Light","Art & Culture", "Security", "IT"};
         int form_department_id = 0;
+        String form_department_name = form_department_nameList[form_type_id];
+        String queryStatement = "select * from form_department where form_id=? and form_type_id=?";
+        
         try{
             PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
             ps.setInt(1, form_id);
+            ps.setInt(2, form_type_id);
+            
             ResultSet queryResult = ps.executeQuery();
             
             //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
             while(queryResult.next()){            
                form_department_id = queryResult.getInt("form_department_id");
+               formDepartment.setApproved_date(queryResult.getDate("approved_date"));
+               formDepartment.setApproved_by(queryResult.getInt("approved_by"));
+               formDepartment.setDescription(queryResult.getString("description"));
+               formDepartment.setForm_department_name(form_department_name);
+               formDepartment.setForm_department_id(form_department_id);
+               formDepartment.setForm_id(form_id);
+               formDepartment.setForm_type_id(form_type_id);
+               formDepartment.setIs_approved(queryResult.getBoolean("is_approved"));
                            
                break; 
             }
@@ -266,25 +285,32 @@ public class ToyProvider {
         }
         
         //---------------
-        formDepartment.setRequestedItemList(GetFormDetails_requestedItemList(form_id));
+        formDepartment.setRequestedItemList(GetFormDetails_requestedItemList(form_department_id));
+        
         return formDepartment;
     }
     
-    public static List<mRequestedItem> GetFormDetails_requestedItemList(int form_id){
+    public static List<mRequestedItem> GetFormDetails_requestedItemList(int form_department_id){
         ArrayList<mRequestedItem> requestedItemList = new ArrayList<mRequestedItem>();
         
-        String queryStatement = "select form_department_id from form_department where form_id=? and form_type_id=?";
-        int form_department_id = 0;
+        String queryStatement = "select * from request_item inner join item on request_item.item_id = item.item_id where form_department_id=?";
+        
         try{
             PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
-            ps.setInt(1, form_id);
+            ps.setInt(1, form_department_id);
             ResultSet queryResult = ps.executeQuery();
             
             //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
             while(queryResult.next()){            
-               form_department_id = queryResult.getInt("form_department_id");
-                           
-               break; 
+               mRequestedItem requestedItem = new mRequestedItem();
+               requestedItem.setForm_department_id(queryResult.getInt("form_department_id"));
+               requestedItem.setForm_type_id(queryResult.getInt("form_type_id"));
+               requestedItem.setImage_url(queryResult.getString("image"));
+               requestedItem.setItem_id(queryResult.getInt("item_id"));
+               requestedItem.setName(queryResult.getString("name"));
+               requestedItem.setQuantity(queryResult.getInt("quantity"));
+               
+               requestedItemList.add(requestedItem);
             }
         }catch(Exception e){
             e.printStackTrace();
