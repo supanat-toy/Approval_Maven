@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class FormProvider {
     
-    public static mForm getForm(int form_id){
+    public static mForm getFormDetails(int form_id){
         mForm form = new mForm();
         try{
             ResultSet result = DBUtils.getPreparedStatement("select * from form where form.form_id = " + form_id).executeQuery();
