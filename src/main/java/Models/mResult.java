@@ -9,8 +9,9 @@ package Models;
  *
  * @author supanattechasothon
  */
-public class mResponseMessage {
-    
+public class mResult {
+    private Boolean isSuccess;
+    private String message;
     
     
 }

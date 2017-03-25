@@ -5,8 +5,8 @@
  */
 package Providers;
 
-import DBConnection.DBUtils;
 import Models.*;
+import DBConnection.DBUtils;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -96,8 +96,8 @@ public class ToyProvider {
         return form;
     }
     
-    public static Form ApprovedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
-        Form form = new Form();
+    public static mResult ApprovedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
+        mResult result = new mResult();
         
         String queryStatement = "select * from form where form_id=?";
      
@@ -105,10 +105,10 @@ public class ToyProvider {
             PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
             ps.setInt(1, form_id);
             
-            ResultSet result = ps.executeQuery();
+            ResultSet queryResult = ps.executeQuery();
             
             //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
-            while(result.next()){            
+            while(queryResult.next()){            
                
                
             }
@@ -140,15 +140,16 @@ public class ToyProvider {
             ps.setDate(form_id, (java.sql.Date) new Date());
         }   
             
-            ResultSet result = ps.executeQuery();
+            ResultSet queryResult = ps.executeQuery();
             
             
         }catch(Exception e){
             e.printStackTrace();
         }
         
-        
-        return form;
+        result.setIsSuccess(true);
+        result.setMessage("Approve successfully");
+        return result;
     }
     
     public static Form RejectedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
@@ -227,5 +228,7 @@ public class ToyProvider {
     
         return form;
     }
+    
+    
     
 }

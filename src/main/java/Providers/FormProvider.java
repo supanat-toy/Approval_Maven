@@ -5,8 +5,8 @@
  */
 package Providers;
 
-import DBConnection.DBUtils;
 import Models.*;
+import DBConnection.DBUtils;
 import java.sql.ResultSet;
 import java.util.*;
 
