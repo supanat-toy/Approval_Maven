@@ -12,7 +12,7 @@ import java.util.*;
  *
  * @author SONY
  */
-public class Form {
+public class mForm {
     
     private int form_id;
     private String event_name;
@@ -36,7 +36,7 @@ public class Form {
     private int approved_by_admin;
     private boolean is_approved_admin;
     
-    public Form(){
+    public mForm(){
         Date now = new Date();
         this.created_date = now;
         this.updated_date = now;

@@ -12,6 +12,25 @@ package Models;
 public class mResult {
     private Boolean isSuccess;
     private String message;
+
+    public mResult() {
+    }
+
+    public Boolean getIsSuccess() {
+        return isSuccess;
+    }
+
+    public void setIsSuccess(Boolean isSuccess) {
+        this.isSuccess = isSuccess;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
     
     
 }
