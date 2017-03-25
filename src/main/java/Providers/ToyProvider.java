@@ -17,8 +17,8 @@ import java.util.*;
  */
 public class ToyProvider {
     
-    public static Form GetResponseMessageList(int form_id, int form_type_id){
-        Form form = new Form();
+    public static mForm GetResponseMessageList(int form_id, int form_type_id){
+        mForm form = new mForm();
         
         String queryStatement = "select form_department_id from form_department where form_id=? and form_type_id=?";
         int form_department_id = 0;
@@ -66,8 +66,8 @@ public class ToyProvider {
     }
     
     
-    public static Form AddResponseMessage(int user_id,int form_id, int form_department_id, String message){
-        Form form = new Form();
+    public static mForm AddResponseMessage(int user_id,int form_id, int form_department_id, String message){
+        mForm form = new mForm();
         
         String queryStatement = "INSERT INTO response_message(form_id,form_department_id,message,created_date,created_by,updated_date,updated_by) VALUES (?, ?, ?, ?, ?,?,?)";
      
@@ -96,8 +96,8 @@ public class ToyProvider {
         return form;
     }
     
-    public static Form ApprovedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
-        Form form = new Form();
+    public static mForm ApprovedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
+        mForm form = new mForm();
         
         String queryStatement = "select * from form where form_id=?";
      
@@ -151,8 +151,8 @@ public class ToyProvider {
         return form;
     }
     
-    public static Form RejectedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
-        Form form = new Form();
+    public static mForm RejectedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
+        mForm form = new mForm();
         
         String queryStatement = "select * from form where form_id=?";
      
@@ -206,8 +206,8 @@ public class ToyProvider {
         return form;
     }
     
-    public static Form DeleteFormByID(int form_id) throws SQLException{
-        Form form = new Form();
+    public static mForm DeleteFormByID(int form_id) throws SQLException{
+        mForm form = new mForm();
         
         String queryStatement = "delete form where form_id=?";
      
