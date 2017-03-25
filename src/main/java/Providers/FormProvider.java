@@ -27,6 +27,7 @@ public class FormProvider {
                 form.setCampus(result.getString("campus"));
                 form.setFacility(result.getString("facility"));
                 form.setPreparing_date(result.getDate("preparing_date"));
+<<<<<<< HEAD
                 form.setStarting_date(result.getDate("starting_date"));
                 form.setCoordinator_name(result.getString("coordinator_name"));
                 form.setCoordinator_phone_number(result.getString("coordinator_phone_number"));
@@ -41,6 +42,9 @@ public class FormProvider {
                 form.setApproved_date_admin(result.getDate("approved_date_admin"));
                 form.setApproved_by_admin(result.getInt("approved_by_admin"));
                 form.setIs_approved_admin(result.getBoolean("is_approved_admin"));
+=======
+                form.setStarting_date(result.getDate("starting_date"));            
+>>>>>>> 91ac347908a9b7a8691c71affe83047495dfc43d
             }
         }catch(Exception e){
             e.printStackTrace();
