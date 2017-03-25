@@ -5,8 +5,8 @@
  */
 package Providers;
 
-import DBConnection.DBUtils;
 import Models.*;
+import DBConnection.DBUtils;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,8 +17,8 @@ import java.util.*;
  */
 public class ToyProvider {
     
-    public static mForm GetResponseMessageList(int form_id, int form_type_id){
-        mForm form = new mForm();
+    public static ArrayList<mResponseMessage> GetResponseMessageList(int form_id, int form_type_id){
+        ArrayList<mResponseMessage> responseMessageList = new ArrayList<mResponseMessage>();
         
         String queryStatement = "select form_department_id from form_department where form_id=? and form_type_id=?";
         int form_department_id = 0;
@@ -26,11 +26,11 @@ public class ToyProvider {
             PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
             ps.setInt(1, form_id);
             ps.setInt(2, form_type_id);
-            ResultSet result = ps.executeQuery();
+            ResultSet queryResult = ps.executeQuery();
             
             //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
-            while(result.next()){            
-               form_department_id = result.getInt("form_department_id");
+            while(queryResult.next()){            
+               form_department_id = queryResult.getInt("form_department_id");
                            
                break; 
             }
@@ -39,35 +39,45 @@ public class ToyProvider {
         }
         
         //---------------
-        queryStatement = "select * from response_message where form_id=? and form_department_id=?";
+        responseMessageList = GetResponseMessageList_ByForm_department_id(form_id, form_department_id);
+        
+        return responseMessageList;
+    }
+    
+    public static ArrayList<mResponseMessage> GetResponseMessageList_ByForm_department_id(int form_id, int form_department_id){
+        
+        ArrayList<mResponseMessage> responseMessageList = new ArrayList<mResponseMessage>();
+        
+        String queryStatement = "select * from response_message where form_id=? and form_department_id=?";
         try{
             PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
             ps.setInt(1, form_id);
             ps.setInt(2, form_department_id);
-            ResultSet result = ps.executeQuery();
-
-            ArrayList<mResponseMessage> responseMessageList = new ArrayList<mResponseMessage>();
+            ResultSet queryResult = ps.executeQuery();
             
-            
-            
-            while(result.next()){            
+            while(queryResult.next()){            
                mResponseMessage responseMessage = new mResponseMessage();
-               responseMessage.setForm_id(result.getInt("form_id"));
-                           
+               
+               responseMessage.setResponse_message_id(queryResult.getInt("response_message_id"));
+               responseMessage.setForm_id(queryResult.getInt("form_id"));
+               responseMessage.setForm_department_id(queryResult.getInt("form_department_id"));
+               responseMessage.setMessage(queryResult.getString("message"));
+               responseMessage.setCreated_date(queryResult.getDate("created_date"));
+               responseMessage.setCreated_by(queryResult.getInt("created_by"));
+               responseMessage.setUpdated_date(queryResult.getDate("updated_date"));
+               responseMessage.setUpdated_by(queryResult.getInt("updated_by"));
+               
                responseMessageList.add(responseMessage);
             }
         }catch(Exception e){
             e.printStackTrace();
         }
         
-        
-        
-        return form;
+        return responseMessageList;
     }
     
-    
-    public static mForm AddResponseMessage(int user_id,int form_id, int form_department_id, String message){
-        mForm form = new mForm();
+    public static mResult AddResponseMessage(int user_id,int form_id, int form_department_id, String message){
+        mResult result = new mResult();
         
         String queryStatement = "INSERT INTO response_message(form_id,form_department_id,message,created_date,created_by,updated_date,updated_by) VALUES (?, ?, ?, ?, ?,?,?)";
      
@@ -81,10 +91,10 @@ public class ToyProvider {
             ps.setDate(6, (java.sql.Date) new Date());
             ps.setInt(7, 0);
             
-            ResultSet result = ps.executeQuery();
+            ResultSet queryResult = ps.executeQuery();
             
             //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
-            while(result.next()){            
+            while(queryResult.next()){            
                   
                break; 
             }
@@ -92,12 +102,14 @@ public class ToyProvider {
             e.printStackTrace();
         }
         
-        
-        return form;
+        result.setIsSuccess(true);
+        result.setMessage("Added successfully");
+        return result;
     }
     
-    public static mForm ApprovedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
-        mForm form = new mForm();
+
+    public static mResult ApprovedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
+        mResult result = new mResult();
         
         String queryStatement = "select * from form where form_id=?";
      
@@ -105,10 +117,10 @@ public class ToyProvider {
             PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
             ps.setInt(1, form_id);
             
-            ResultSet result = ps.executeQuery();
+            ResultSet queryResult = ps.executeQuery();
             
             //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
-            while(result.next()){            
+            while(queryResult.next()){            
                
                
             }
@@ -140,19 +152,20 @@ public class ToyProvider {
             ps.setDate(form_id, (java.sql.Date) new Date());
         }   
             
-            ResultSet result = ps.executeQuery();
+            ResultSet queryResult = ps.executeQuery();
             
             
         }catch(Exception e){
             e.printStackTrace();
         }
         
-        
-        return form;
+        result.setIsSuccess(true);
+        result.setMessage("Approved successfully");
+        return result;
     }
     
-    public static mForm RejectedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
-        mForm form = new mForm();
+    public static mResult RejectedForm(int user_id,int responsible_form_type_id, int form_id) throws SQLException{
+        mResult result = new mResult();
         
         String queryStatement = "select * from form where form_id=?";
      
@@ -160,10 +173,10 @@ public class ToyProvider {
             PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
             ps.setInt(1, form_id);
             
-            ResultSet result = ps.executeQuery();
+            ResultSet queryResult = ps.executeQuery();
             
             //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
-            while(result.next()){            
+            while(queryResult.next()){            
                
                
             }
@@ -195,19 +208,20 @@ public class ToyProvider {
             ps.setDate(form_id, (java.sql.Date) new Date());
         }
    
-            ResultSet result = ps.executeQuery();
+           ResultSet queryResult = ps.executeQuery();
             
             
         }catch(Exception e){
             e.printStackTrace();
         }
+        result.setIsSuccess(true);
+        result.setMessage("Rejected successfully");
         
-        
-        return form;
+        return result;
     }
     
-    public static mForm DeleteFormByID(int form_id) throws SQLException{
-        mForm form = new mForm();
+    public static mResult DeleteFormByID(int form_id) throws SQLException{
+        mResult result = new mResult();
         
         String queryStatement = "delete form where form_id=?";
      
@@ -215,9 +229,9 @@ public class ToyProvider {
             PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
             ps.setInt(1, form_id);
             
-            ResultSet result = ps.executeQuery();
+            ResultSet queryResult = ps.executeQuery();
 
-            while(result.next()){            
+            while(queryResult.next()){            
                
                
             }
@@ -225,7 +239,59 @@ public class ToyProvider {
             e.printStackTrace();
         }
     
-        return form;
+        result.setIsSuccess(true);
+        result.setMessage("Deleted successfully");
+        
+        return result;
+    }
+    
+    public static mFormDepartment GetFormDetails_IT(int form_id){
+        mFormDepartment formDepartment = new mFormDepartment();
+        
+        String queryStatement = "select form_department_id from form_department where form_id=? and form_type_id=?";
+        int form_department_id = 0;
+        try{
+            PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
+            ps.setInt(1, form_id);
+            ResultSet queryResult = ps.executeQuery();
+            
+            //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
+            while(queryResult.next()){            
+               form_department_id = queryResult.getInt("form_department_id");
+                           
+               break; 
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        //---------------
+        formDepartment.setRequestedItemList(GetFormDetails_requestedItemList(form_id));
+        return formDepartment;
+    }
+    
+    public static List<mRequestedItem> GetFormDetails_requestedItemList(int form_id){
+        ArrayList<mRequestedItem> requestedItemList = new ArrayList<mRequestedItem>();
+        
+        String queryStatement = "select form_department_id from form_department where form_id=? and form_type_id=?";
+        int form_department_id = 0;
+        try{
+            PreparedStatement ps = DBUtils.getPreparedStatement(queryStatement);
+            ps.setInt(1, form_id);
+            ResultSet queryResult = ps.executeQuery();
+            
+            //ResultSet result = DBUtils.getPreparedStatement(queryStatement).executeQuery();
+            while(queryResult.next()){            
+               form_department_id = queryResult.getInt("form_department_id");
+                           
+               break; 
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        //---------------
+        return requestedItemList;
     }
     
 }
