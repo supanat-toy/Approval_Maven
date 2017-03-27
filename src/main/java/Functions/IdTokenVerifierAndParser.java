@@ -10,7 +10,7 @@ public class IdTokenVerifierAndParser {
     private static final String GOOGLE_CLIENT_ID = "AIzaSyCOGTnRYduXRh81_UtwUIUCkKb-cJCZiZ4";
 
     public static GoogleIdToken.Payload getPayload (String tokenString) throws Exception {
-
+        System.out.println("getPayload()");
         JacksonFactory jacksonFactory = new JacksonFactory();
         GoogleIdTokenVerifier googleIdTokenVerifier =
                             new GoogleIdTokenVerifier(new NetHttpTransport(), jacksonFactory);

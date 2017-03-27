@@ -15,7 +15,7 @@
 
 <meta name="google-signin-scope" content="profile email">
 <meta name="google-signin-client_id"
-     content="AIzaSyCOGTnRYduXRh81_UtwUIUCkKb-cJCZiZ4">
+     content="1008859256581-pigg650v05nm9fpgh0r1pa9fhdb1c578.apps.googleusercontent.com">
 
 <script>
       //google callback. This function will redirect to our login servlet
