@@ -70,6 +70,20 @@ public class CoordinatorServlet extends HttpServlet {
             request.setAttribute("formDepartment_secuity", formDepartment_secuity);
             request.setAttribute("formDepartment_soundAndLight", formDepartment_soundAndLight);
             request.setAttribute("formDepartment_technical", formDepartment_technical);
+            
+            
+            ArrayList<mResponseMessage> responseMessageList = detailsProvider.GetResponseMessageList(id, 1);
+            request.setAttribute("responseMessageList_1", responseMessageList);
+            responseMessageList = detailsProvider.GetResponseMessageList(id, 2);
+            request.setAttribute("responseMessageList_2", responseMessageList);
+            responseMessageList = detailsProvider.GetResponseMessageList(id, 3);
+            request.setAttribute("responseMessageList_3", responseMessageList);
+            responseMessageList = detailsProvider.GetResponseMessageList(id, 4);
+            request.setAttribute("responseMessageList_4", responseMessageList);
+            responseMessageList = detailsProvider.GetResponseMessageList(id, 5);
+            request.setAttribute("responseMessageList_5", responseMessageList);
+            responseMessageList = detailsProvider.GetResponseMessageList(id, 6);
+            request.setAttribute("responseMessageList_6", responseMessageList);
         }
 
 

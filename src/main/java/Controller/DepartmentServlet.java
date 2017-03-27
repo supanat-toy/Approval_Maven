@@ -50,22 +50,56 @@ public class DepartmentServlet extends HttpServlet {
             
         } else if (userPath.equals("/Department/Details")) {
             int id = Integer.parseInt(request.getParameter("id"));
+            int department_id = Integer.parseInt(request.getParameter("department_id"));
             
             mForm formDetails = detailsProvider.getFormDetails(id);
-            mFormDepartment formDepartment_artAndCulture = detailsProvider.GetFormDetails_ArtAndCulture(id);
-            mFormDepartment formDepartment_IT = detailsProvider.GetFormDetails_IT(id);
-            mFormDepartment formDepartment_properties = detailsProvider.GetFormDetails_Properties(id);
-            mFormDepartment formDepartment_secuity = detailsProvider.GetFormDetails_Security(id);
-            mFormDepartment formDepartment_soundAndLight = detailsProvider.GetFormDetails_SoundAndLight(id);
-            mFormDepartment formDepartment_technical = detailsProvider.GetFormDetails_Technical(id);
-            
             request.setAttribute("formDetails", formDetails);
-            request.setAttribute("formDepartment_artAndCulture", formDepartment_artAndCulture);
-            request.setAttribute("formDepartment_IT", formDepartment_IT);
-            request.setAttribute("formDepartment_properties", formDepartment_properties);
-            request.setAttribute("formDepartment_secuity", formDepartment_secuity);
-            request.setAttribute("formDepartment_soundAndLight", formDepartment_soundAndLight);
-            request.setAttribute("formDepartment_technical", formDepartment_technical);
+            
+            if (department_id == 1){
+                mFormDepartment formDepartment_properties = detailsProvider.GetFormDetails_Properties(id);
+                request.setAttribute("formDepartment_properties", formDepartment_properties);
+                
+                ArrayList<mResponseMessage> responseMessageList = detailsProvider.GetResponseMessageList(id, department_id);
+                request.setAttribute("responseMessageList_1", responseMessageList);
+            }
+            else if (department_id == 2){
+                mFormDepartment formDepartment_technical = detailsProvider.GetFormDetails_Technical(id);
+                request.setAttribute("formDepartment_technical", formDepartment_technical);
+                
+                ArrayList<mResponseMessage> responseMessageList = detailsProvider.GetResponseMessageList(id, department_id);
+                request.setAttribute("responseMessageList_2", responseMessageList);
+            }
+            else if (department_id == 3){
+                mFormDepartment formDepartment_soundAndLight = detailsProvider.GetFormDetails_SoundAndLight(id);
+                request.setAttribute("formDepartment_soundAndLight", formDepartment_soundAndLight);
+                    
+                ArrayList<mResponseMessage> responseMessageList = detailsProvider.GetResponseMessageList(id, department_id);
+                request.setAttribute("responseMessageList_3", responseMessageList);
+            }
+            else if (department_id == 4){
+                mFormDepartment formDepartment_artAndCulture = detailsProvider.GetFormDetails_ArtAndCulture(id);
+                request.setAttribute("formDepartment_artAndCulture", formDepartment_artAndCulture);
+                
+                ArrayList<mResponseMessage> responseMessageList = detailsProvider.GetResponseMessageList(id, department_id);
+                request.setAttribute("responseMessageList_4", responseMessageList);
+            }
+            else if (department_id == 5){
+                mFormDepartment formDepartment_secuity = detailsProvider.GetFormDetails_Security(id);
+                request.setAttribute("formDepartment_secuity", formDepartment_secuity);
+                
+                ArrayList<mResponseMessage> responseMessageList = detailsProvider.GetResponseMessageList(id, department_id);
+                request.setAttribute("responseMessageList_5", responseMessageList);
+            }
+            else if (department_id == 6){
+                mFormDepartment formDepartment_IT = detailsProvider.GetFormDetails_IT(id);
+                request.setAttribute("formDepartment_IT", formDepartment_IT);
+                
+                ArrayList<mResponseMessage> responseMessageList = detailsProvider.GetResponseMessageList(id, department_id);
+                request.setAttribute("responseMessageList_6", responseMessageList);
+            }  
+            
+            
+            
         }
 
 

@@ -7,6 +7,13 @@
 <c:set var="formDepartment_soundAndLight" value="${formDepartment_soundAndLight}" />
 <c:set var="formDepartment_technical" value="${formDepartment_technical}" />
 
+<c:set var="responseMessageList_1" value="${responseMessageList_1}" />
+<c:set var="responseMessageList_2" value="${responseMessageList_2}" />
+<c:set var="responseMessageList_3" value="${responseMessageList_3}" />
+<c:set var="responseMessageList_4" value="${responseMessageList_4}" />
+<c:set var="responseMessageList_5" value="${responseMessageList_5}" />
+<c:set var="responseMessageList_6" value="${responseMessageList_6}" />
+
 <div class="set_background_screen_2 set_margin_container_default_10">
     <div class="box_layer_info_3">
         <div class="title">
