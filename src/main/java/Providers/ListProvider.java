@@ -19,10 +19,10 @@ import java.util.List;
  */
 public class ListProvider {
     
-    public static final int COORDINATOR = 1, SUPERVISOR = 2, ADMIN = 3, PROPERTIES = 4, TECHNICAL = 5, SOUNDANDLIGHT = 6, ARTSANDCULTURE = 7, SECURITY = 8, IT = 9;
+    public final int COORDINATOR = 1, SUPERVISOR = 2, ADMIN = 3, PROPERTIES = 4, TECHNICAL = 5, SOUNDANDLIGHT = 6, ARTSANDCULTURE = 7, SECURITY = 8, IT = 9;
     
-    
-    public static List<mFormDisplay> getForms(int created_by) {
+    UserProvider userProvider = new UserProvider();
+    public List<mFormDisplay> getForms(int created_by) {
         List<mFormDisplay> forms = new ArrayList<mFormDisplay>();
         try {
             ResultSet result = DBUtils.getPreparedStatement("select form_id from form where form.is_delete = false and form.created_by = " + created_by).executeQuery();
@@ -44,9 +44,9 @@ public class ListProvider {
                 int supervisor_id = result.getInt("approved_by_supervisor");
                 int admin_id = result.getInt("approved_by_admin");
                 if(is_approved_admin){
-                    form.setLatest_response(UserProvider.getUserName(admin_id));
+                    form.setLatest_response(userProvider.getUserName(admin_id));
                 }else if(is_approved_supervisor){
-                    form.setLatest_response(UserProvider.getUserName(supervisor_id));
+                    form.setLatest_response(userProvider.getUserName(supervisor_id));
                 }
                 forms.add(form);
             }
@@ -55,7 +55,7 @@ public class ListProvider {
         }
         return forms;
     }
- public static mResponse getLatestResponse(int form_id) {
+    public mResponse getLatestResponse(int form_id) {
         mResponse latest_response = new mResponse();
         List<mResponse> responses = new ArrayList<mResponse>();
         try {
@@ -79,7 +79,7 @@ public class ListProvider {
         return latest_response;
     }
 
-    public static boolean getDepartmentProgress(int form_id) {
+    public boolean getDepartmentProgress(int form_id) {
         boolean department_progress = true;
         try {
             ResultSet result = DBUtils.getPreparedStatement("select is_approved from form_department where form_department.form_id = " + form_id).executeQuery();
