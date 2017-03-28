@@ -25,7 +25,7 @@ public class ListProvider {
     public static List<mFormDisplay> getForms(int created_by) {
         List<mFormDisplay> forms = new ArrayList<mFormDisplay>();
         try {
-            ResultSet result = DBUtils.getPreparedStatement("select form_id from form where form.created_by = " + created_by).executeQuery();
+            ResultSet result = DBUtils.getPreparedStatement("select form_id from form where form.is_delete = false and form.created_by = " + created_by).executeQuery();
             while (result.next()) {
                 mFormDisplay form = new mFormDisplay();
                 int form_id = result.getInt("form_id");

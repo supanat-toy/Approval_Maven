@@ -35,6 +35,7 @@ public class mForm {
     private Date approved_date_admin;
     private int approved_by_admin;
     private boolean is_approved_admin;
+    private boolean is_delete;
     
     public mForm(){
         Date now = new Date();
@@ -46,6 +47,7 @@ public class mForm {
         this.approved_date_admin = now;
         this.approved_by_admin = 0;
         this.is_approved_admin = false;
+        this.is_delete = false;
     }    
 
     public int getForm_id() {
@@ -214,6 +216,14 @@ public class mForm {
 
     public void setIs_approved_admin(boolean is_approved_admin) {
         this.is_approved_admin = is_approved_admin;
+    }
+
+    public boolean isIs_delete() {
+        return is_delete;
+    }
+
+    public void setIs_delete(boolean is_delete) {
+        this.is_delete = is_delete;
     }
     
     
