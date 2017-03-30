@@ -64,8 +64,13 @@ public class CreateProvider {
             ps.setInt(19, form.getApproved_by_admin());
             ps.setBoolean(20, form.isIs_approved_admin());
             ps.setBoolean(21, form.isIs_delete());
+            ps.execute();
+            result.setIsSuccess(true);
+            result.setMessage("Submit Successfully.");
         } catch (Exception e) {
             e.printStackTrace();
+            result.setIsSuccess(false);
+            result.setMessage(e.getMessage());
         }
         return result;
     }
