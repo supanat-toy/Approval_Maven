@@ -50,8 +50,15 @@ public class CoordinatorServlet extends HttpServlet {
             request.setAttribute("formDisplayList", formDisplayList);
           
         } else if (userPath.equals("/Coordinator/Create")) {
-            
-            
+            String name = request.getAttribute("event_name").toString();
+            String type = request.getAttribute("event_type").toString();
+            String department = request.getAttribute("event_department").toString();
+            String place = request.getAttribute("place").toString();
+            String facility = request.getAttribute("facility").toString();
+            String preparing_date = request.getAttribute("event_startDate").toString();
+            String preparing_time = request.getAttribute("event_startTime").toString();
+            String starting_date = request.getAttribute("event_endDate").toString();
+            String starting_time = request.getAttribute("event_endTime").toString();
         } else if (userPath.equals("/Coordinator/Details")) {
             int id = Integer.parseInt(request.getParameter("id"));
             
