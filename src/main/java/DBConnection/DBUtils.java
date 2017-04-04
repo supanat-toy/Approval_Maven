@@ -28,9 +28,12 @@ public class DBUtils {
         }else{
             try {
                 String driver = "com.mysql.jdbc.Driver";
-                String url = "jdbc:mysql://localhost:3306/approval_enterprise";
-                String user = "root";
-                String password = "root";
+                //String url = "jdbc:mysql://localhost:3306/approval_enterprise";
+                String url = "jdbc:mysql://163.44.196.136:3306/approval_enterprise?zeroDateTimeBehavior=convertToNull";
+                //String user = "root";
+                //String password = "root";
+                String user = "approval2017";
+                String password = "Approval2017";
                 Class.forName(driver);
                 connection = DriverManager.getConnection(url, user, password);
             } catch (ClassNotFoundException e) {

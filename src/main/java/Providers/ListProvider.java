@@ -7,6 +7,7 @@ package Providers;
 
 import DBConnection.DBUtils;
 import Models.mFormDisplay;
+import Models.mFormType;
 import Models.mResponse;
 
 import java.sql.ResultSet;
@@ -93,4 +94,19 @@ public class ListProvider {
         return department_progress;
     }
     
+    public List<mFormType> getFormTypes(){
+        List<mFormType> formTypes = new ArrayList<mFormType>();
+        try {
+            ResultSet result = DBUtils.getPreparedStatement("select * from form_type").executeQuery();
+            while (result.next()) {
+                int form_type_id = result.getInt("form_type_id");
+                String name = result.getString("name");
+                mFormType formType = new mFormType(form_type_id, name);
+                formTypes.add(formType);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return formTypes;
+    }
 }
