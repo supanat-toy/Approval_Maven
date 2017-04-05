@@ -25,7 +25,7 @@ import java.util.List;
 public class DetailsProvider {
     
     public final int COORDINATOR = 1, SUPERVISOR = 2, ADMIN = 3, PROPERTIES = 4, TECHNICAL = 5, SOUNDANDLIGHT = 6, ARTSANDCULTURE = 7, SECURITY = 8, IT = 9;
-    
+    String[] form_department_nameList = {"" ,"","","","Properties", "Technical", "Sound & Light","Art & Culture", "Security", "IT"};
     
     public mForm getFormDetails(int form_id){
         mForm form = new mForm();
@@ -90,6 +90,7 @@ public class DetailsProvider {
     
     public ArrayList<mResponseMessage> GetResponseMessageList_ByForm_department_id(int form_id, int form_department_id){
         
+        
         ArrayList<mResponseMessage> responseMessageList = new ArrayList<mResponseMessage>();
         
         String queryStatement = "select * from response_message where form_id=? and form_department_id=?";
@@ -105,6 +106,7 @@ public class DetailsProvider {
                responseMessage.setResponse_message_id(queryResult.getInt("response_message_id"));
                responseMessage.setForm_id(queryResult.getInt("form_id"));
                responseMessage.setForm_department_id(queryResult.getInt("form_department_id"));
+               responseMessage.setForm_department_name(form_department_nameList[queryResult.getInt("form_department_id")]);
                responseMessage.setMessage(queryResult.getString("message"));
                responseMessage.setCreated_date(queryResult.getDate("created_date"));
                responseMessage.setCreated_by(queryResult.getInt("created_by"));
@@ -295,7 +297,6 @@ public class DetailsProvider {
     public mFormDepartment GetFormDetails_department(int form_id, int form_type_id){
         
         mFormDepartment formDepartment = new mFormDepartment();
-        String[] form_department_nameList = {"" ,"Properties", "Technical", "Sound & Light","Art & Culture", "Security", "IT"};
         int form_department_id = 0;
         String form_department_name = form_department_nameList[form_type_id];
         String queryStatement = "select * from form_department where form_id=? and form_type_id=?";
