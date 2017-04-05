@@ -3,21 +3,27 @@
 
 <c:set var="formDetails" value="${formDetails}" />
 
+<!-- Property -->
 <c:set var="formDepartment_properties" value="${formDepartment_properties}" />
 <c:set var="properties_requestedItemList" value="${formDepartment_properties.requestedItemList}" />
 
+<!-- Technical -->
 <c:set var="formDepartment_technical" value="${formDepartment_technical}" />
 <c:set var="technical_requestedItemList" value="${formDepartment_technical.requestedItemList}" />
 
+<!-- Sound & Light -->
 <c:set var="formDepartment_soundAndLight" value="${formDepartment_soundAndLight}" />
 <c:set var="soundAndLight_requestedItemList" value="${formDepartment_soundAndLight.requestedItemList}" />
 
+<!-- Art & Culture -->
 <c:set var="formDepartment_artAndCulture" value="${formDepartment_artAndCulture}" />
 <c:set var="artAndCulture_requestedItemList" value="${formDepartment_artAndCulture.requestedItemList}" />
 
+<!-- Security -->
 <c:set var="formDepartment_secuity" value="${formDepartment_secuity}" />
 <c:set var="secuity_requestedItemList" value="${formDepartment_secuity.requestedItemList}" />
 
+<!-- IT -->
 <c:set var="formDepartment_IT" value="${formDepartment_IT}" />
 <c:set var="IT_requestedItemList" value="${formDepartment_IT.requestedItemList}" />
 
@@ -34,6 +40,17 @@
         <div class="title">
             <div class="container_new">
                 <span class="topic">Details</span>
+                <div class="set_float_right">
+                    <c:if test="${userProfile.responsible_form_type_id == 2}">
+                        <a class="set_float_right set_btn_approve_sm" href="/Student/Create"><i class="fa fa-check" aria-hidden="true"></i> Approve</a>
+                        <a class="set_float_right set_btn_delete_sm set_margin_right_10" href="/Student/Create"><i class="fa fa-times" aria-hidden="true"></i> Reject</a>
+                    </c:if>
+                    <c:if test="${userProfile.responsible_form_type_id == 3}">
+                        <a class="set_float_right set_btn_approve_sm" href="/Student/Create"><i class="fa fa-check" aria-hidden="true"></i> Approve</a>
+                        <a class="set_float_right set_btn_delete_sm set_margin_right_10" href="/Student/Create"><i class="fa fa-times" aria-hidden="true"></i> Reject</a>
+                    </c:if>
+                </div>
+                
             </div>
         </div>
         <div class="container_new">
@@ -41,12 +58,24 @@
                 <div class="box_organinzer_event set_margin_container_default_10">
                     <ul id="navtabs_create_member" class="nav_tabs_box_organinzer_event nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#Details_tab">Details</a></li>
-                        <li><a data-toggle="tab" href="#Properties_tab">Properties</a></li>
-                        <li><a data-toggle="tab" href="#Technical_tab">Technical</a></li>
-                        <li><a data-toggle="tab" href="#SoundLight_tab">Sound & Light</a></li>
-                        <li><a data-toggle="tab" href="#ArtsCulture_tab">Arts & Culture</a></li>
-                        <li><a data-toggle="tab" href="#Security_tab">Security</a></li>
-                        <li><a data-toggle="tab" href="#IT_tab">IT</a></li>
+                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 4)}">
+                            <li><a data-toggle="tab" href="#Properties_tab">Properties</a></li>
+                        </c:if>
+                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 5)}">
+                            <li><a data-toggle="tab" href="#Technical_tab">Technical</a></li>
+                        </c:if>
+                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 6)}">
+                            <li><a data-toggle="tab" href="#SoundLight_tab">Sound & Light</a></li>
+                        </c:if>
+                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 7)}">
+                            <li><a data-toggle="tab" href="#ArtsCulture_tab">Arts & Culture</a></li>
+                        </c:if>
+                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 8)}">
+                            <li><a data-toggle="tab" href="#Security_tab">Security</a></li>
+                        </c:if>
+                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 9)}">
+                            <li><a data-toggle="tab" href="#IT_tab">IT</a></li>
+                        </c:if>     
                     </ul>
                     <div class="tab_content tab-content">
                         <div id="Details_tab" class="tab-pane fade in active">
@@ -72,14 +101,26 @@
                                         </div>
                                         <div class="form_group_row">
                                             <label>Place</label>
-                                            <div class="box_each_checkbox_radio">
-                                                <input id="radio-require_form_1" name="form_place" class="radio-custom" value="Huamak" type="radio" checked>
-                                                <label for="radio-require_form_1" class="radio-custom-label"> Huamak</label>
-                                            </div>
-                                            <div class="box_each_checkbox_radio">
-                                                <input id="radio-require_form_2" name="form_place" class="radio-custom" value="Bangna" type="radio">
-                                                <label for="radio-require_form_2" class="radio-custom-label"> Bangna</label>
-                                            </div>
+                                            <c:if test="${(formDetails.campus == 'Huamak')}">
+                                                <div class="box_each_checkbox_radio">                                      
+                                                    <input id="radio-require_form_1" name="form_place" class="radio-custom" value="Huamak" type="radio" checked>
+                                                    <label for="radio-require_form_1" class="radio-custom-label"> Huamak</label>    
+                                                </div>
+                                                 <div class="box_each_checkbox_radio">
+                                                    <input id="radio-require_form_2" name="form_place" class="radio-custom" value="Bangna" type="radio">
+                                                    <label for="radio-require_form_2" class="radio-custom-label"> Bangna</label>
+                                                </div>
+                                            </c:if>
+                                           <c:if test="${(formDetails.campus != 'Huamak')}">
+                                                <div class="box_each_checkbox_radio">                                      
+                                                    <input id="radio-require_form_3" name="form_place" class="radio-custom" value="Huamak" type="radio">
+                                                    <label for="radio-require_form_3" class="radio-custom-label"> Huamak</label>    
+                                                </div>
+                                                 <div class="box_each_checkbox_radio">
+                                                    <input id="radio-require_form_4" name="form_place" class="radio-custom" value="Bangna" type="radio" checked>
+                                                    <label for="radio-require_form_4" class="radio-custom-label"> Bangna</label>
+                                                </div>
+                                            </c:if>
                                         </div>
                                         <div class="form_group_row">
                                             <label>Room/Facilities</label>
@@ -145,7 +186,7 @@
                                         </div>
                                         <div class="form_group_row">
                                             <label>Description</label>
-                                            <textarea name="0_description" value="${formDetails.description}" class="form_control_textField"></textarea>
+                                            <textarea name="0_description" class="form_control_textField">${formDetails.description}</textarea>
                                         </div>
                                         <div class="form_footer_submit form_group_row">
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
@@ -173,7 +214,11 @@
                                                     </div>
                                                 </div>
                                             </c:forEach>  
-                                        </div>
+                                        </div> 
+                                        <div class="box_add_response_description">
+                                            <textarea class="form_control_textField"></textarea>
+                                            <button class="set_btn_confirm_sm_backgroundWhite set_float_right set_margin_top_10">Add Response</button>
+                                        </div>                                
                                     </div>
 
                                 </div>
@@ -328,6 +373,10 @@
                                                 </div>
                                             </c:forEach>
 
+                                        </div>
+                                        <div class="box_add_response_description">
+                                            <textarea class="form_control_textField"></textarea>
+                                            <button class="set_btn_confirm_sm_backgroundWhite set_float_right set_margin_top_10">Add Response</button>
                                         </div>
                                     </div>
                                             <img src="../../../Images/3_Sound & Light/MicrophoneWithShortStand.jpg" alt=""/>
@@ -498,6 +547,10 @@
                                             </c:forEach>
 
                                         </div>
+                                        <div class="box_add_response_description">
+                                            <textarea class="form_control_textField"></textarea>
+                                            <button class="set_btn_confirm_sm_backgroundWhite set_float_right set_margin_top_10">Add Response</button>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -600,6 +653,10 @@
                                             </c:forEach>
 
                                         </div>
+                                        <div class="box_add_response_description">
+                                            <textarea class="form_control_textField"></textarea>
+                                            <button class="set_btn_confirm_sm_backgroundWhite set_float_right set_margin_top_10">Add Response</button>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -680,6 +737,10 @@
                                             </c:forEach>
 
                                         </div>
+                                        <div class="box_add_response_description">
+                                            <textarea class="form_control_textField"></textarea>
+                                            <button class="set_btn_confirm_sm_backgroundWhite set_float_right set_margin_top_10">Add Response</button>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -759,6 +820,10 @@
                                                 </div>
                                             </c:forEach>
 
+                                        </div>
+                                        <div class="box_add_response_description">
+                                            <textarea class="form_control_textField"></textarea>
+                                            <button class="set_btn_confirm_sm_backgroundWhite set_float_right set_margin_top_10">Add Response</button>
                                         </div>
                                     </div>
 
@@ -894,6 +959,10 @@
                                                 </div>
                                             </c:forEach>
 
+                                        </div>
+                                        <div class="box_add_response_description">
+                                            <textarea class="form_control_textField"></textarea>
+                                            <button class="set_btn_confirm_sm_backgroundWhite set_float_right set_margin_top_10">Add Response</button>
                                         </div>
                                     </div>
 
