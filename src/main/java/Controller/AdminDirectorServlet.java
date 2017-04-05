@@ -40,7 +40,7 @@ public class AdminDirectorServlet extends HttpServlet {
         String userPath = request.getServletPath();
 
         mUser userProfile = userProfileFunctions.GetUserProfile(request);
-        
+        request.setAttribute("userProfile", userProfile);
        
         if (userPath.equals("/AdminDirector")) {
             userPath += "/List";

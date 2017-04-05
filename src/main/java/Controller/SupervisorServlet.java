@@ -40,6 +40,7 @@ public class SupervisorServlet extends HttpServlet {
             throws ServletException, IOException {
         String userPath = request.getServletPath();
         mUser userProfile = userProfileFunctions.GetUserProfile(request);
+        request.setAttribute("userProfile", userProfile);
        
         if (userPath.equals("/Supervisor")) {
             userPath += "/List";

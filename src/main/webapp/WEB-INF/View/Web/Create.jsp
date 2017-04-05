@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="userProfile" value="${userProfile}" />
 
 <div class="set_background_screen_2 set_margin_container_default_10">
     <div class="box_layer_info_3">
@@ -146,7 +148,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Folding Table White</span>
                                                                 <div class="box_item_input">
-                                                                    <input class="input_item_quanlity form_control_textField" />
+                                                                    <input name="1_FoldingTableWhite" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -158,7 +160,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Folding Table Round White</span>
                                                                 <div class="box_item_input">
-                                                                    <input class="input_item_quanlity form_control_textField" />
+                                                                    <input name="1_FoldingTableRoundWhite" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -176,7 +178,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Chair Crown</span>
                                                                 <div class="box_item_input">
-                                                                    <input class="input_item_quanlity form_control_textField" />
+                                                                    <input name="1_ChairCrown" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -188,7 +190,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Chair Steel</span>
                                                                 <div class="box_item_input">
-                                                                    <input class="input_item_quanlity form_control_textField" />
+                                                                    <input name="1_ChairSteel" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>

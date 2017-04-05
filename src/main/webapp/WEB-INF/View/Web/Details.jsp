@@ -1,18 +1,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="formDetails" value="${formDetails}" />
-<c:set var="formDepartment_artAndCulture" value="${formDepartment_artAndCulture}" />
-<c:set var="formDepartment_IT" value="${formDepartment_IT}" />
-<c:set var="formDepartment_properties" value="${formDepartment_properties}" />
-<c:set var="formDepartment_secuity" value="${formDepartment_secuity}" />
-<c:set var="formDepartment_soundAndLight" value="${formDepartment_soundAndLight}" />
-<c:set var="formDepartment_technical" value="${formDepartment_technical}" />
+<c:set var="userProfile" value="${userProfile}" />
 
-<c:set var="responseMessageList_1" value="${responseMessageList_1}" />
-<c:set var="responseMessageList_2" value="${responseMessageList_2}" />
-<c:set var="responseMessageList_3" value="${responseMessageList_3}" />
-<c:set var="responseMessageList_4" value="${responseMessageList_4}" />
-<c:set var="responseMessageList_5" value="${responseMessageList_5}" />
-<c:set var="responseMessageList_6" value="${responseMessageList_6}" />
+<c:set var="formDetails" value="${formDetails}" />
+
+<c:set var="formDepartment_properties" value="${formDepartment_properties}" />
+<c:set var="properties_requestedItemList" value="${formDepartment_properties.requestedItemList}" />
+
+<c:set var="formDepartment_technical" value="${formDepartment_technical}" />
+<c:set var="technical_requestedItemList" value="${formDepartment_technical.requestedItemList}" />
+
+<c:set var="formDepartment_soundAndLight" value="${formDepartment_soundAndLight}" />
+<c:set var="soundAndLight_requestedItemList" value="${formDepartment_soundAndLight.requestedItemList}" />
+
+<c:set var="formDepartment_artAndCulture" value="${formDepartment_artAndCulture}" />
+<c:set var="artAndCulture_requestedItemList" value="${formDepartment_artAndCulture.requestedItemList}" />
+
+<c:set var="formDepartment_secuity" value="${formDepartment_secuity}" />
+<c:set var="secuity_requestedItemList" value="${formDepartment_secuity.requestedItemList}" />
+
+<c:set var="formDepartment_IT" value="${formDepartment_IT}" />
+<c:set var="IT_requestedItemList" value="${formDepartment_IT.requestedItemList}" />
+
+
+<c:set var="responseMessageList_1" value="${responseMessageList_1}" /> <!-- Property -->
+<c:set var="responseMessageList_2" value="${responseMessageList_2}" /> <!-- Technical -->
+<c:set var="responseMessageList_3" value="${responseMessageList_3}" /> <!-- Sound & Light -->
+<c:set var="responseMessageList_4" value="${responseMessageList_4}" /> <!-- Art & Culture -->
+<c:set var="responseMessageList_5" value="${responseMessageList_5}" /> <!-- Security -->
+<c:set var="responseMessageList_6" value="${responseMessageList_6}" /> <!-- IT -->
 
 <div class="set_background_screen_2 set_margin_container_default_10">
     <div class="box_layer_info_3">
@@ -68,20 +83,20 @@
                                         </div>
                                         <div class="form_group_row">
                                             <label>Room/Facilities</label>
-                                            <input name="form_room" class="form_control_textField">
+                                            <input name="form_room" class="form_control_textField" value="${formDetails.facility}">
                                         </div>
                                         <div class="form_group_row">
                                             <div class="col_percent_7 set_padding_right_15">
                                                 <label>Preparation Date</label>
                                                 <div class="input-group date" id="datepicker-disabled-past_pre_startDate" data-date-format="dd/mm/yyyy" data-date-start-date="Date.default">
-                                                    <input type="text" name="pre_start_date" class="form_control_textField" placeholder="" data-parsley-required="true" />
+                                                    <input type="text" name="pre_start_date" class="form_control_textField" value="${formDetails.preparing_date}" placeholder="" data-parsley-required="true" />
                                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                                 </div>
                                             </div>
                                             <div class="col_percent_5">
                                                 <label>Preparation Time</label>
                                                 <div class="input-group bootstrap-timepicker">
-                                                    <input id="timepicker_pre_startTime" name="pre_start_time" type="text" class="form_control_textField">
+                                                    <input id="timepicker_pre_startTime" name="pre_start_time" type="text" value="${formDetails.preparing_date}" class="form_control_textField">
                                                     <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                                 </div>
                                             </div>
@@ -90,19 +105,19 @@
                                             <div class="col_percent_7 set_padding_right_15">
                                                 <label>Starting Date</label>
                                                 <div class="input-group date" id="datepicker-disabled-past_startDate" data-date-format="dd/mm/yyyy" data-date-start-date="Date.default">
-                                                    <input type="text" name="start_date" class="form_control_textField" placeholder="" data-parsley-required="true" />
+                                                    <input type="text" name="start_date" class="form_control_textField" value="${formDetails.starting_date}" placeholder="" data-parsley-required="true" />
                                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                                 </div>
                                             </div>
                                             <div class="col_percent_5">
                                                 <label>Starting Time</label>
                                                 <div class="input-group bootstrap-timepicker">
-                                                    <input id="timepicker_startTime" name="start_time" type="text" class="form_control_textField">
+                                                    <input id="timepicker_startTime" name="start_time" type="text" value="${formDetails.starting_date}" class="form_control_textField">
                                                     <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form_group_row">
+<!--                                        <div class="form_group_row">
                                             <div class="col_percent_7 set_padding_right_15">
                                                 <label>Ending Date</label>
                                                 <div class="input-group date" id="datepicker-disabled-past_endDate" data-date-format="dd/mm/yyyy" data-date-start-date="Date.default">
@@ -117,7 +132,7 @@
                                                     <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <div class="form_group_row">
                                             <div class="col_percent_7 set_padding_right_15">
                                                 <label>Coordinator name</label>
@@ -144,25 +159,20 @@
                                     </div>
                                     <div class="details">
                                         <div class="box_response_each_part_requestList">
-                                            <%
-                                                for (int i = 0; i < 3; i++)
-                                                { %>
-                                            <div class="box_response_each_part_request">
-                                                <div class="box_info_responder">
-                                                    <span class="responder_icon"></span>
-                                                    <div class="info_responder">
-                                                        <span class="responder_name">Technical Department</span>
-                                                        <span class="responder_dateTime">22/12/2017 14:30</span>
+                                            <c:forEach items="${responseMessageList_1}" var="responseMessage">
+                                                <div class="box_response_each_part_request">
+                                                    <div class="box_info_responder">
+                                                        <span class="responder_icon"></span>
+                                                        <div class="info_responder">
+                                                            <span class="responder_name">${responseMessage.form_department_name}</span>
+                                                            <span class="responder_dateTime">${responseMessage.updated_date}</span>
+                                                        </div>
                                                     </div>
-
+                                                    <div class="box_description_responder">
+                                                        ${responseMessage.message}
+                                                    </div>
                                                 </div>
-                                                <div class="box_description_responder">
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla est. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur
-                                                </div>
-                                            </div>
-                                                <% } %>
-                                            
-
+                                            </c:forEach>  
                                         </div>
                                     </div>
 
@@ -187,7 +197,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Folding Table White</span>
                                                                 <div class="box_item_input">
-                                                                    <input class="input_item_quanlity form_control_textField" />
+                                                                    <input name="1_FoldingTableWhite" value="${properties_requestedItemList[0].quantity}" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -199,7 +209,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Folding Table Round White</span>
                                                                 <div class="box_item_input">
-                                                                    <input class="input_item_quanlity form_control_textField" />
+                                                                    <input name="1_FoldingTableRoundWhite" value="${properties_requestedItemList[1].quantity}" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -217,7 +227,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Chair Crown</span>
                                                                 <div class="box_item_input">
-                                                                    <input class="input_item_quanlity form_control_textField" />
+                                                                    <input name="1_ChairCrown" value="${properties_requestedItemList[2].quantity}" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -229,7 +239,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Chair Steel</span>
                                                                 <div class="box_item_input">
-                                                                    <input class="input_item_quanlity form_control_textField" />
+                                                                    <input name="1_ChairSteel" value="${properties_requestedItemList[3].quantity}" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -248,7 +258,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Board Moveable</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="1_BoardMoveable" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${properties_requestedItemList[4].quantity}" name="1_BoardMoveable" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -267,7 +277,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Table Cloth Blue</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="1_TableClothBlue" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${properties_requestedItemList[5].quantity}" name="1_TableClothBlue" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -279,7 +289,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Table Cloth Round</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="1_TableClothRound" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${properties_requestedItemList[6].quantity}" name="1_TableClothRound" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -289,7 +299,7 @@
                                         </div>
                                         <div class="form_group_row">
                                             <label>Description</label>
-                                            <textarea name="1_description" class="form_control_textField"></textarea>
+                                            <textarea name="1_description" class="form_control_textField">${formDepartment_properties.description}</textarea>
                                         </div>
                                         <div class="form_footer_submit form_group_row">
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
@@ -303,24 +313,20 @@
                                     </div>
                                     <div class="details">
                                         <div class="box_response_each_part_requestList">
-                                            <%
-                                                for (int i = 0; i < 3; i++)
-                                                { %>
-                                                    <div class="box_response_each_part_request">
-                                                        <div class="box_info_responder">
-                                                            <span class="responder_icon"></span>
-                                                            <div class="info_responder">
-                                                                <span class="responder_name">Technical Department</span>
-                                                                <span class="responder_dateTime">22/12/2017 14:30</span>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="box_description_responder">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla est. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur
+                                            <c:forEach items="${responseMessageList_1}" var="responseMessage">
+                                                <div class="box_response_each_part_request">
+                                                    <div class="box_info_responder">
+                                                        <span class="responder_icon"></span>
+                                                        <div class="info_responder">
+                                                            <span class="responder_name">${responseMessage.form_department_name}</span>
+                                                            <span class="responder_dateTime">${responseMessage.updated_date}</span>
                                                         </div>
                                                     </div>
-                                                
-                                            <% } %>
+                                                    <div class="box_description_responder">
+                                                        ${responseMessage.message}
+                                                    </div>
+                                                </div>
+                                            </c:forEach>
 
                                         </div>
                                     </div>
@@ -345,7 +351,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Extension Cords Lenght</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="2_ExtensionCordsLenght" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${technical_requestedItemList[0].quantity}" name="2_ExtensionCordsLenght" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -357,7 +363,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">ExtensionCordsRoll</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="2_ExtensionCordsRoll" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${technical_requestedItemList[1].quantity}" name="2_ExtensionCordsRoll" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -374,7 +380,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Microphone With Short Stand</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="2_MicrophoneWithShortStand" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${technical_requestedItemList[2].quantity}" name="2_MicrophoneWithShortStand" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -386,7 +392,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Microphone With Stand</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="2_MicrophoneWithStand" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${technical_requestedItemList[3].quantity}" name="2_MicrophoneWithStand" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -404,7 +410,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Phone Office</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="2_PhoneOfficeWhite" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${technical_requestedItemList[4].quantity}" name="2_PhoneOfficeWhite" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -422,7 +428,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Air Conditioner</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="2_AirConditioner" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${technical_requestedItemList[5].quantity}" name="2_AirConditioner" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -440,7 +446,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">sound1</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="2_sound1" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${technical_requestedItemList[6].quantity}" name="2_sound1" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -452,7 +458,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">sound2</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="2_sound2" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${technical_requestedItemList[7].quantity}" name="2_sound2" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -462,7 +468,7 @@
                                         </div>
                                         <div class="form_group_row">
                                             <label>Description</label>
-                                            <textarea name="2_description" class="form_control_textField"></textarea>
+                                            <textarea name="2_description" class="form_control_textField">${formDepartment_technical.description}</textarea>
                                         </div>
                                         <div class="form_footer_submit form_group_row">
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
@@ -476,24 +482,20 @@
                                     </div>
                                     <div class="details">
                                         <div class="box_response_each_part_requestList">
-                                            <%
-                                                for (int i = 0; i < 3; i++)
-                                                { %>
-                                                    <div class="box_response_each_part_request">
-                                                        <div class="box_info_responder">
-                                                            <span class="responder_icon"></span>
-                                                            <div class="info_responder">
-                                                                <span class="responder_name">Technical Department</span>
-                                                                <span class="responder_dateTime">22/12/2017 14:30</span>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="box_description_responder">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla est. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur
+                                            <c:forEach items="${responseMessageList_2}" var="responseMessage">
+                                                <div class="box_response_each_part_request">
+                                                    <div class="box_info_responder">
+                                                        <span class="responder_icon"></span>
+                                                        <div class="info_responder">
+                                                            <span class="responder_name">${responseMessage.form_department_name}</span>
+                                                            <span class="responder_dateTime">${responseMessage.updated_date}</span>
                                                         </div>
                                                     </div>
-                                               
-                                            <% } %>
+                                                    <div class="box_description_responder">
+                                                        ${responseMessage.message}
+                                                    </div>
+                                                </div>
+                                            </c:forEach>
 
                                         </div>
                                     </div>
@@ -518,7 +520,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Microphone With Short Stand</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="3_MicrophoneWithShortStand" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${soundAndLight_requestedItemList[0].quantity}" name="3_MicrophoneWithShortStand" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -530,7 +532,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Microphone With Stand</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="3_MicrophoneWithStand" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${soundAndLight_requestedItemList[1].quantity}" name="3_MicrophoneWithStand" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -547,7 +549,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Projector</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="3_Projector" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${soundAndLight_requestedItemList[2].quantity}" name="3_Projector" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -559,7 +561,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Projector Screen</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="3_ProjectorScreen" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${soundAndLight_requestedItemList[3].quantity}" name="3_ProjectorScreen" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -568,7 +570,7 @@
                                         </div>
                                         <div class="form_group_row">
                                             <label>Description</label>
-                                            <textarea name="3_description" class="form_control_textField"></textarea>
+                                            <textarea name="3_description" class="form_control_textField">${formDepartment_soundAndLight.description}</textarea>
                                         </div>
                                         <div class="form_footer_submit form_group_row">
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
@@ -582,24 +584,20 @@
                                     </div>
                                     <div class="details">
                                         <div class="box_response_each_part_requestList">
-                                            <%
-                                                for (int i = 0; i < 3; i++)
-                                                { %>
-                                                    <div class="box_response_each_part_request">
-                                                        <div class="box_info_responder">
-                                                            <span class="responder_icon"></span>
-                                                            <div class="info_responder">
-                                                                <span class="responder_name">Technical Department</span>
-                                                                <span class="responder_dateTime">22/12/2017 14:30</span>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="box_description_responder">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla est. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur
+                                            <c:forEach items="${responseMessageList_3}" var="responseMessage">
+                                                <div class="box_response_each_part_request">
+                                                    <div class="box_info_responder">
+                                                        <span class="responder_icon"></span>
+                                                        <div class="info_responder">
+                                                            <span class="responder_name">${responseMessage.form_department_name}</span>
+                                                            <span class="responder_dateTime">${responseMessage.updated_date}</span>
                                                         </div>
                                                     </div>
-                                                
-                                            <% } %>
+                                                    <div class="box_description_responder">
+                                                        ${responseMessage.message}
+                                                    </div>
+                                                </div>
+                                            </c:forEach>
 
                                         </div>
                                     </div>
@@ -624,7 +622,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Foam Letters</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="4_FoamLetters" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${artAndCulture_requestedItemList[0].quantity}" name="4_FoamLetters" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -642,7 +640,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Direction Sign</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="4_DirectionSign" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${artAndCulture_requestedItemList[1].quantity}" name="4_DirectionSign" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -652,7 +650,7 @@
                                         </div>
                                         <div class="form_group_row">
                                             <label>Description</label>
-                                            <textarea name="4_description" class="form_control_textField"></textarea>
+                                            <textarea name="4_description" class="form_control_textField">${formDepartment_artAndCulture.description}</textarea>
                                         </div>
                                         <div class="form_footer_submit form_group_row">
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
@@ -666,24 +664,20 @@
                                     </div>
                                     <div class="details">
                                         <div class="box_response_each_part_requestList">
-                                            <%
-                                                for (int i = 0; i < 3; i++)
-                                                { %>
-                                                    <div class="box_response_each_part_request">
-                                                        <div class="box_info_responder">
-                                                            <span class="responder_icon"></span>
-                                                            <div class="info_responder">
-                                                                <span class="responder_name">Technical Department</span>
-                                                                <span class="responder_dateTime">22/12/2017 14:30</span>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="box_description_responder">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla est. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur
+                                            <c:forEach items="${responseMessageList_4}" var="responseMessage">
+                                                <div class="box_response_each_part_request">
+                                                    <div class="box_info_responder">
+                                                        <span class="responder_icon"></span>
+                                                        <div class="info_responder">
+                                                            <span class="responder_name">${responseMessage.form_department_name}</span>
+                                                            <span class="responder_dateTime">${responseMessage.updated_date}</span>
                                                         </div>
                                                     </div>
-                                                
-                                            <% } %>
+                                                    <div class="box_description_responder">
+                                                        ${responseMessage.message}
+                                                    </div>
+                                                </div>
+                                            </c:forEach>
 
                                         </div>
                                     </div>
@@ -708,7 +702,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Parking Area</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="5_ParkingArea" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${secuity_requestedItemList[0].quantity}" name="5_ParkingArea" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -726,7 +720,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Security Officer</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="5_SecurityOfficer" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${secuity_requestedItemList[1].quantity}" name="5_SecurityOfficer" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -736,7 +730,7 @@
                                         </div>
                                         <div class="form_group_row">
                                             <label>Description</label>
-                                            <textarea name="5_description" class="form_control_textField"></textarea>
+                                            <textarea name="5_description" class="form_control_textField">${formDepartment_secuity.description}</textarea>
                                         </div>
                                         <div class="form_footer_submit form_group_row">
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
@@ -750,24 +744,20 @@
                                     </div>
                                     <div class="details">
                                         <div class="box_response_each_part_requestList">
-                                            <%
-                                                for (int i = 0; i < 3; i++)
-                                                { %>
-                                                    <div class="box_response_each_part_request">
-                                                        <div class="box_info_responder">
-                                                            <span class="responder_icon"></span>
-                                                            <div class="info_responder">
-                                                                <span class="responder_name">Technical Department</span>
-                                                                <span class="responder_dateTime">22/12/2017 14:30</span>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="box_description_responder">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla est. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur
+                                            <c:forEach items="${responseMessageList_5}" var="responseMessage">
+                                                <div class="box_response_each_part_request">
+                                                    <div class="box_info_responder">
+                                                        <span class="responder_icon"></span>
+                                                        <div class="info_responder">
+                                                            <span class="responder_name">${responseMessage.form_department_name}</span>
+                                                            <span class="responder_dateTime">${responseMessage.updated_date}</span>
                                                         </div>
                                                     </div>
-                                                
-                                            <% } %>
+                                                    <div class="box_description_responder">
+                                                        ${responseMessage.message}
+                                                    </div>
+                                                </div>
+                                            </c:forEach>
 
                                         </div>
                                     </div>
@@ -792,7 +782,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Projector</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="6_Projector" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${IT_requestedItemList[0].quantity}" name="6_Projector" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -810,7 +800,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Laptop</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="6_Laptop" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${IT_requestedItemList[1].quantity}" name="6_Laptop" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -829,7 +819,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Computer</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="6_Computer" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${IT_requestedItemList[2].quantity}" name="6_Computer" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -847,7 +837,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Visualizer</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="6_Visualizer" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${IT_requestedItemList[3].quantity}" name="6_Visualizer" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -865,7 +855,7 @@
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Projector Screen</span>
                                                                 <div class="box_item_input">
-                                                                    <input name="6_ProjectorScreen" class="input_item_quanlity form_control_textField" />
+                                                                    <input value="${IT_requestedItemList[4].quantity}" name="6_ProjectorScreen" class="input_item_quanlity form_control_textField" />
                                                                     <span class="item_unit">ตัว</span>
                                                                 </div>
                                                             </div>
@@ -875,7 +865,7 @@
                                         </div>
                                         <div class="form_group_row">
                                             <label>Description</label>
-                                            <textarea name="6_description" class="form_control_textField"></textarea>
+                                            <textarea name="6_description" class="form_control_textField">${formDepartment_IT.description}</textarea>
                                         </div>
                                         <div class="form_footer_submit form_group_row">
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
@@ -889,24 +879,20 @@
                                     </div>
                                     <div class="details">
                                         <div class="box_response_each_part_requestList">
-                                            <%
-                                                for (int i = 0; i < 3; i++)
-                                                { %>
-                                            <div class="box_response_each_part_request">
-                                                <div class="box_info_responder">
-                                                    <span class="responder_icon"></span>
-                                                    <div class="info_responder">
-                                                        <span class="responder_name">Technical Department</span>
-                                                        <span class="responder_dateTime">22/12/2017 14:30</span>
+                                            <c:forEach items="${responseMessageList_6}" var="responseMessage">
+                                                <div class="box_response_each_part_request">
+                                                    <div class="box_info_responder">
+                                                        <span class="responder_icon"></span>
+                                                        <div class="info_responder">
+                                                            <span class="responder_name">${responseMessage.form_department_name}</span>
+                                                            <span class="responder_dateTime">${responseMessage.updated_date}</span>
+                                                        </div>
                                                     </div>
-
+                                                    <div class="box_description_responder">
+                                                        ${responseMessage.message}
+                                                    </div>
                                                 </div>
-                                                <div class="box_description_responder">
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla est. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur
-                                                </div>
-                                            </div>
-                                                <% } %>
-                                            <% } %>
+                                            </c:forEach>
 
                                         </div>
                                     </div>

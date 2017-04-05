@@ -42,6 +42,7 @@ public class DepartmentServlet extends HttpServlet {
         
         String userPath = request.getServletPath();
         mUser userProfile = userProfileFunctions.GetUserProfile(request);
+        request.setAttribute("userProfile", userProfile);
        
         if (userPath.equals("/Department")) {
             userPath += "/List";

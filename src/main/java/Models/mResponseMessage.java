@@ -16,12 +16,21 @@ public class mResponseMessage {
     private int response_message_id;
     private int form_id;
     private int form_department_id;
+    private String form_department_name;
     private String message;
     private Date created_date;
     private int created_by;
     private Date updated_date;
     private int updated_by;
 
+    public String getForm_department_name() {
+        return form_department_name;
+    }
+
+    public void setForm_department_name(String form_department_name) {
+        this.form_department_name = form_department_name;
+    }
+    
     public int getResponse_message_id() {
         return response_message_id;
     }

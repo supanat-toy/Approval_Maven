@@ -44,7 +44,8 @@ public class CoordinatorServlet extends HttpServlet {
         
         String userPath = request.getServletPath();
         mUser userProfile = userProfileFunctions.GetUserProfile(request);
-       
+        request.setAttribute("userProfile", userProfile);
+        
         if (userPath.equals("/Coordinator")) {
             System.err.println("asdasda");
             userPath += "/List";
