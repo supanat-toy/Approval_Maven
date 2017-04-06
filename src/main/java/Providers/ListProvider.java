@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Providers;
-
 import DBConnection.DBUtils;
 import Models.mFormDisplay;
 import Models.mFormType;
@@ -19,10 +18,9 @@ import java.util.List;
  * @author supanattechasothon
  */
 public class ListProvider {
-    
     public final int COORDINATOR = 1, SUPERVISOR = 2, ADMIN = 3, PROPERTIES = 4, TECHNICAL = 5, SOUNDANDLIGHT = 6, ARTSANDCULTURE = 7, SECURITY = 8, IT = 9;
-    
     UserProvider userProvider = new UserProvider();
+    
     public List<mFormDisplay> getForms(int created_by) {
         List<mFormDisplay> forms = new ArrayList<mFormDisplay>();
         try {
@@ -95,7 +93,7 @@ public class ListProvider {
     }
     
     public List<mFormType> getFormTypes(){
-        List<mFormType> formTypes = new ArrayList<mFormType>();
+        List<mFormType> formTypes = null;
         try {
             ResultSet result = DBUtils.getPreparedStatement("select * from form_type").executeQuery();
             while (result.next()) {
