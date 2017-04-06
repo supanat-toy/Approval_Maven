@@ -61,9 +61,7 @@ public class CoordinatorServlet extends HttpServlet {
             String facility = request.getAttribute("form_room").toString();
             
             String preparing_date = request.getAttribute("pre_start_date").toString();
-            System.out.println(preparing_date);
             String preparing_time = request.getAttribute("pre_start_time").toString();
-            System.out.println(preparing_time);
             String starting_date = request.getAttribute("start_date").toString();
             String starting_time = request.getAttribute("start_time").toString();
             //String end_date = request.getAttribute("end_date").toString();
@@ -81,9 +79,9 @@ public class CoordinatorServlet extends HttpServlet {
             new_form.setFacility(facility);
             
             //Preparing date
-            //new_form.setPreparing_date(timeConverter.dateStringtoDate(preparing_date, preparing_time));
+            new_form.setPreparing_date(preparing_date + " " + preparing_time);
             //Starting date
-            //new_form.setStarting_date(timeConverter.dateStringtoDate(starting_date, starting_time));
+            new_form.setStarting_date(starting_date + " " + starting_time);
             
             new_form.setCoordinator_name(coordinator_name);
             new_form.setCoordinator_phone_number(coordinator_phone_number);
@@ -92,11 +90,11 @@ public class CoordinatorServlet extends HttpServlet {
             new_form.setCreated_by(id);
             new_form.setUpdated_by(id);
             
-//            mResult result = createProvider.submitRequest(new_form);
-//            
-//            if(result.getIsSuccess()){
-//                userPath = "/Coordinator/List";
-//            }
+            mResult result = createProvider.submitRequest(new_form);
+            
+            if(result.getIsSuccess()){
+                userPath = "/Coordinator/List";
+            }
             
         } else if (userPath.equals("/Coordinator/Details")) {
             int id = Integer.parseInt(request.getParameter("id"));

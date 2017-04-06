@@ -14,11 +14,11 @@ import java.util.Date;
  * @author SONY
  */
 public class TimeConverter {
-    public Date dateStringtoDate(String date, String time){
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        Date d = null;
+    public java.sql.Timestamp dateStringtoDate(String date){
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        java.sql.Timestamp d = null;
         try {
-            d = df.parse(date + " " + time);
+            d = new java.sql.Timestamp(format.parse(date).getTime());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -26,8 +26,7 @@ public class TimeConverter {
     }
     public String dateToString(Date d){
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        String date = "";
-        date = df.format(d).toString();
+        String date = df.format(d);
         return date;
     }
     public String dateFormat(String date){

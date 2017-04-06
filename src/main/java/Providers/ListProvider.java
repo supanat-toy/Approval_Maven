@@ -20,11 +20,11 @@ import java.util.List;
 public class ListProvider {
     public final int COORDINATOR = 1, SUPERVISOR = 2, ADMIN = 3, PROPERTIES = 4, TECHNICAL = 5, SOUNDANDLIGHT = 6, ARTSANDCULTURE = 7, SECURITY = 8, IT = 9;
     UserProvider userProvider = new UserProvider();
-    
+    //PASS
     public List<mFormDisplay> getForms(int created_by) {
         List<mFormDisplay> forms = new ArrayList<mFormDisplay>();
         try {
-            ResultSet result = DBUtils.getPreparedStatement("select form_id from form where form.is_delete = false and form.created_by = " + created_by).executeQuery();
+            ResultSet result = DBUtils.getPreparedStatement("select * from form where form.is_delete = false and form.created_by = " + created_by + " order by form.updated_date desc").executeQuery();
             while (result.next()) {
                 mFormDisplay form = new mFormDisplay();
                 int form_id = result.getInt("form_id");
@@ -91,7 +91,7 @@ public class ListProvider {
         }
         return department_progress;
     }
-    
+    //PASS
     public List<mFormType> getFormTypes(){
         List<mFormType> formTypes = null;
         try {

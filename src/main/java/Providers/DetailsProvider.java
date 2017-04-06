@@ -37,22 +37,22 @@ public class DetailsProvider {
                 form.setDepartment(result.getString("department"));
                 form.setCampus(result.getString("campus"));
                 form.setFacility(result.getString("facility"));
-                form.setPreparing_date(result.getDate("preparing_date"));
-                form.setStarting_date(result.getDate("starting_date"));
+                form.setPreparing_date(result.getString("preparing_date"));
+                form.setStarting_date(result.getString("starting_date"));
                 form.setCoordinator_name(result.getString("coordinator_name"));
                 form.setCoordinator_phone_number(result.getString("coordinator_phone_number"));
                 form.setDescription(result.getString("description"));
-                form.setCreated_date(result.getDate("created_date"));
+                form.setCreated_date(result.getString("created_date"));
                 form.setCreated_by(result.getInt("created_by"));
-                form.setUpdated_date(result.getDate("updated_date"));
+                form.setUpdated_date(result.getString("updated_date"));
                 form.setUpdated_by(result.getInt("updated_by"));
-                form.setApproved_date_supervisor(result.getDate("approved_date_supervisor"));
+                form.setApproved_date_supervisor(result.getString("approved_date_supervisor"));
                 form.setApproved_by_supervisor(result.getInt("approved_by_supervisor"));
                 form.setIs_approved_supervisor(result.getBoolean("is_approved_supervisor"));
-                form.setApproved_date_admin(result.getDate("approved_date_admin"));
+                form.setApproved_date_admin(result.getString("approved_date_admin"));
                 form.setApproved_by_admin(result.getInt("approved_by_admin"));
                 form.setIs_approved_admin(result.getBoolean("is_approved_admin"));
-                form.setStarting_date(result.getDate("starting_date"));
+                form.setStarting_date(result.getString("starting_date"));
                 break;
             }
         } catch (Exception e) {

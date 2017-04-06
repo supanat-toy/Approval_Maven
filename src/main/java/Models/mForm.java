@@ -5,6 +5,7 @@
  */
 package Models;
 
+import Functions.TimeConverter;
 import java.text.*;
 import java.util.*;
 
@@ -20,31 +21,32 @@ public class mForm {
     private String department;
     private String campus;
     private String facility;
-    private Date preparing_date;
-    private Date starting_date;
+    private String preparing_date;
+    private String starting_date;
     private String coordinator_name;
     private String coordinator_phone_number;
     private String description;
-    private Date created_date;
+    private String created_date;
     private int created_by;
-    private Date updated_date;
+    private String updated_date;
     private int updated_by;
-    private Date approved_date_supervisor;
+    private String approved_date_supervisor;
     private int approved_by_supervisor;
     private boolean is_approved_supervisor;
-    private Date approved_date_admin;
+    private String approved_date_admin;
     private int approved_by_admin;
     private boolean is_approved_admin;
     private boolean is_delete;
     
     public mForm(){
         Date now = new Date();
-        this.created_date = now;
-        this.updated_date = now;
-        this.approved_date_supervisor = now;
+        TimeConverter tc = new TimeConverter();
+        this.created_date = tc.dateToString(now);
+        this.updated_date = tc.dateToString(now);
+        this.approved_date_supervisor = tc.dateToString(now);
         this.approved_by_supervisor = 0;
         this.is_approved_supervisor = false;
-        this.approved_date_admin = now;
+        this.approved_date_admin = tc.dateToString(now);
         this.approved_by_admin = 0;
         this.is_approved_admin = false;
         this.is_delete = false;
@@ -98,19 +100,19 @@ public class mForm {
         this.facility = facility;
     }
 
-    public Date getPreparing_date() {
+    public String getPreparing_date() {
         return preparing_date;
     }
 
-    public void setPreparing_date(Date preparing_date) {
+    public void setPreparing_date(String preparing_date) {
         this.preparing_date = preparing_date;
     }
 
-    public Date getStarting_date() {
+    public String getStarting_date() {
         return starting_date;
     }
 
-    public void setStarting_date(Date starting_date) {
+    public void setStarting_date(String starting_date) {
         this.starting_date = starting_date;
     }
 
@@ -138,11 +140,11 @@ public class mForm {
         this.description = description;
     }
 
-    public Date getCreated_date() {
+    public String getCreated_date() {
         return created_date;
     }
 
-    public void setCreated_date(Date created_date) {
+    public void setCreated_date(String created_date) {
         this.created_date = created_date;
     }
 
@@ -154,11 +156,11 @@ public class mForm {
         this.created_by = created_by;
     }
 
-    public Date getUpdated_date() {
+    public String getUpdated_date() {
         return updated_date;
     }
 
-    public void setUpdated_date(Date updated_date) {
+    public void setUpdated_date(String updated_date) {
         this.updated_date = updated_date;
     }
 
@@ -170,11 +172,11 @@ public class mForm {
         this.updated_by = updated_by;
     }
 
-    public Date getApproved_date_supervisor() {
+    public String getApproved_date_supervisor() {
         return approved_date_supervisor;
     }
 
-    public void setApproved_date_supervisor(Date approved_date_supervisor) {
+    public void setApproved_date_supervisor(String approved_date_supervisor) {
         this.approved_date_supervisor = approved_date_supervisor;
     }
 
@@ -194,11 +196,11 @@ public class mForm {
         this.is_approved_supervisor = is_approved_supervisor;
     }
 
-    public Date getApproved_date_admin() {
+    public String getApproved_date_admin() {
         return approved_date_admin;
     }
 
-    public void setApproved_date_admin(Date approved_date_admin) {
+    public void setApproved_date_admin(String approved_date_admin) {
         this.approved_date_admin = approved_date_admin;
     }
 
