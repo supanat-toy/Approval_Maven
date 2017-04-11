@@ -47,8 +47,8 @@ public class CoordinatorServlet extends HttpServlet {
         request.setAttribute("userProfile", userProfile);
         
         if (userPath.equals("/Coordinator")) {
-            System.err.println("asdasda");
-            userPath += "/List";
+           
+            userPath = "/List";
             List<mFormDisplay> formDisplayList = listProvider.getForms(userProfile.getUser_id());
             request.setAttribute("formDisplayList", formDisplayList);
           
@@ -92,8 +92,9 @@ public class CoordinatorServlet extends HttpServlet {
             
             mResult result = createProvider.submitRequest(new_form);
             
+            
             if(result.getIsSuccess()){
-                userPath = "/Coordinator/List";
+                userPath = "/List";
             }
             
         } else if (userPath.equals("/Coordinator/Details")) {
@@ -128,6 +129,8 @@ public class CoordinatorServlet extends HttpServlet {
             request.setAttribute("responseMessageList_5", responseMessageList);
             responseMessageList = detailsProvider.GetResponseMessageList(id, 6);
             request.setAttribute("responseMessageList_6", responseMessageList);
+            
+            userPath = "/Details";
         }
 
 

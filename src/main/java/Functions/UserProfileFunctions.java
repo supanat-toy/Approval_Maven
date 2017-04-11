@@ -17,9 +17,12 @@ import javax.websocket.Session;
 public class UserProfileFunctions {
     
     public String GetUserProfile_ID(HttpServletRequest request){
+        
         HttpSession session = request.getSession();
         int userID = GetUserProfile(request).getUser_id();
-        return Integer.toString(userID);
+        
+        return "1";
+        //return Integer.toString(userID);
     }
     
     public mUser GetUserProfile(HttpServletRequest request){
@@ -27,6 +30,10 @@ public class UserProfileFunctions {
         HttpSession session = request.getSession();
         
         userProfile = (mUser)session.getAttribute("userProfile");
+        
+        userProfile = new mUser();
+        userProfile.setUser_id(1);
+        
         return userProfile;
     }
     

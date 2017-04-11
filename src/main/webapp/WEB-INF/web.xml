@@ -9,7 +9,7 @@
         <!--header and footer settings ( Member )-->
         <jsp-property-group>
             <description>header and footer settings ( Member )</description>
-            <url-pattern>/WEB-INF/View/FrontEnd/*</url-pattern>
+            <url-pattern>/WEB-INF/View/Web/*</url-pattern>
             <include-prelude>/WEB-INF/Layout/Member/header.jspf</include-prelude>
             <include-coda>/WEB-INF/Layout/Member/footer.jspf</include-coda>
         </jsp-property-group>

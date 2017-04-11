@@ -43,7 +43,7 @@ public class AdminDirectorServlet extends HttpServlet {
         request.setAttribute("userProfile", userProfile);
        
         if (userPath.equals("/AdminDirector")) {
-            userPath += "/List";
+            userPath = "/List";
             List<mFormDisplay> formDisplayList = listProvider.getForms(userProfile.getUser_id());
             request.setAttribute("formDisplayList", formDisplayList);
             
@@ -79,6 +79,8 @@ public class AdminDirectorServlet extends HttpServlet {
             request.setAttribute("responseMessageList_5", responseMessageList);
             responseMessageList = detailsProvider.GetResponseMessageList(id, 6);
             request.setAttribute("responseMessageList_6", responseMessageList);
+            
+            userPath = "/Details";
         }
 
 
