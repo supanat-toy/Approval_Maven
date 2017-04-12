@@ -53,48 +53,7 @@ public class CoordinatorServlet extends HttpServlet {
             request.setAttribute("formDisplayList", formDisplayList);
           
         } else if (userPath.equals("/Coordinator/Create")) {
-            int id = 1;
-            String event_name = request.getAttribute("form_name").toString();
-            String activity = request.getAttribute("form_activity_type").toString();
-            String department = request.getAttribute("form_department").toString();
-            String campus = request.getAttribute("form_place").toString();
-            String facility = request.getAttribute("form_room").toString();
             
-            String preparing_date = request.getAttribute("pre_start_date").toString();
-            String preparing_time = request.getAttribute("pre_start_time").toString();
-            String starting_date = request.getAttribute("start_date").toString();
-            String starting_time = request.getAttribute("start_time").toString();
-            //String end_date = request.getAttribute("end_date").toString();
-            //String end_time = request.getAttribute("end_time").toString();
-            
-            String coordinator_name = request.getAttribute("coordinator_name").toString();
-            String coordinator_phone_number = request.getAttribute("coordinator_phone").toString();
-            String description = request.getAttribute("0_description").toString();
-            
-            mForm new_form = new mForm();
-            new_form.setEvent_name(event_name);
-            new_form.setActivity(activity);
-            new_form.setDepartment(department);
-            new_form.setCampus(campus);
-            new_form.setFacility(facility);
-            
-            //Preparing date
-            new_form.setPreparing_date(preparing_date + " " + preparing_time);
-            //Starting date
-            new_form.setStarting_date(starting_date + " " + starting_time);
-            
-            new_form.setCoordinator_name(coordinator_name);
-            new_form.setCoordinator_phone_number(coordinator_phone_number);
-            new_form.setDescription(description);
-            
-            new_form.setCreated_by(id);
-            new_form.setUpdated_by(id);
-            
-            mResult result = createProvider.submitRequest(new_form);
-            
-            if(result.getIsSuccess()){
-                userPath = "/Coordinator/List";
-            }
             
         } else if (userPath.equals("/Coordinator/Details")) {
             int id = Integer.parseInt(request.getParameter("id"));
@@ -157,7 +116,49 @@ public class CoordinatorServlet extends HttpServlet {
             //System.out.println("count: "+FormProvider.getAllRequests(8).size());
             
         } else if (userPath.equals("/Coordinator/Create")) {
+            int id = userProfile.getUser_id();
+            String event_name = request.getAttribute("form_name").toString();
+            String activity = request.getAttribute("form_activity_type").toString();
+            String department = request.getAttribute("form_department").toString();
+            String campus = request.getAttribute("form_place").toString();
+            String facility = request.getAttribute("form_room").toString();
             
+            String preparing_date = request.getAttribute("pre_start_date").toString();
+            String preparing_time = request.getAttribute("pre_start_time").toString();
+            String starting_date = request.getAttribute("start_date").toString();
+            String starting_time = request.getAttribute("start_time").toString();
+            //String end_date = request.getAttribute("end_date").toString();
+            //String end_time = request.getAttribute("end_time").toString();
+            
+            String coordinator_name = request.getAttribute("coordinator_name").toString();
+            String coordinator_phone_number = request.getAttribute("coordinator_phone").toString();
+            String description = request.getAttribute("0_description").toString();
+            
+            mForm new_form = new mForm();
+            new_form.setEvent_name(event_name);
+            new_form.setActivity(activity);
+            new_form.setDepartment(department);
+            new_form.setCampus(campus);
+            new_form.setFacility(facility);
+            
+            //Preparing date
+            new_form.setPreparing_date(preparing_date + " " + preparing_time);
+            System.out.println(preparing_date + " " + preparing_time);
+            //Starting date
+            new_form.setStarting_date(starting_date + " " + starting_time);
+            
+            new_form.setCoordinator_name(coordinator_name);
+            new_form.setCoordinator_phone_number(coordinator_phone_number);
+            new_form.setDescription(description);
+            
+            new_form.setCreated_by(id);
+            new_form.setUpdated_by(id);
+            
+            mResult result = createProvider.submitRequest(new_form);
+            
+            if(result.getIsSuccess()){
+                userPath = "/Coordinator/List";
+            }
             
         } else if (userPath.equals("/Coordinator/Details")) {
             
