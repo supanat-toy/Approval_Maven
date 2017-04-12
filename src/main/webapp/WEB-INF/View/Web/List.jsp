@@ -33,7 +33,7 @@ page import="Models.*;"
                                         <%
                                             //FormModel formRequest = ((FormGroupModel)${request}).getFormList().get(0);
                                         %>
-                                        <a href="/Coordinator/Details" class="box_each_requested">
+                                        <a href="/Coordinator/Details?id=${formDisplay.form_id}" class="box_each_requested">
                                                 <div class="box_info_top">
                                                     <div class="set_float_left">
                                                         <span class="event_name">${formDisplay.event_name}</span>

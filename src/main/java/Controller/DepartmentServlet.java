@@ -45,7 +45,7 @@ public class DepartmentServlet extends HttpServlet {
         request.setAttribute("userProfile", userProfile);
        
         if (userPath.equals("/Department")) {
-            userPath += "/List";
+            userPath = "/List";
             List<mFormDisplay> formDisplayList = listProvider.getForms(userProfile.getUser_id());
             request.setAttribute("formDisplayList", formDisplayList);
             
@@ -98,7 +98,7 @@ public class DepartmentServlet extends HttpServlet {
                 ArrayList<mResponseMessage> responseMessageList = detailsProvider.GetResponseMessageList(id, department_id);
                 request.setAttribute("responseMessageList_6", responseMessageList);
             }  
-            
+            userPath = "/Details";
             
             
         }

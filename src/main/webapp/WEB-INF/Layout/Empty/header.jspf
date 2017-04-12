@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="/Contents/layout_website.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-    <link href="Scripts/Tools/parsley/src/parsley.css" rel="stylesheet" />
+    <link href="/Scripts/Tools/parsley/src/parsley.css" rel="stylesheet" />
     <link href="/Contents/common.css" rel="stylesheet" />
     <link href="/Contents/common_2.css" rel="stylesheet" />
 
