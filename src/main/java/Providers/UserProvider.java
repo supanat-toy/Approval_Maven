@@ -6,6 +6,7 @@
 package Providers;
 
 import DBConnection.DBUtils;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 /**
@@ -29,5 +30,19 @@ public class UserProvider {
             e.printStackTrace();
         }
         return name;
+    }
+    
+    public int getResponsibleFormID(int user_id){
+        int id = 0;
+        try {
+            ResultSet result = DBUtils.getPreparedStatement("select responsible_form_type_id from user where user.user_id = " + user_id).executeQuery();
+            while(result.next()){
+                id = result.getInt("responsible_form_type_id");
+                break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return id;
     }
 }

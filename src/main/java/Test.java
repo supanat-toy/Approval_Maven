@@ -2,7 +2,9 @@
 import Functions.TimeConverter;
 import Models.*;
 import Providers.CreateProvider;
+import Providers.DetailsProvider;
 import Providers.ListProvider;
+import Providers.UserProvider;
 import java.util.Date;
 import java.util.List;
 
@@ -18,31 +20,45 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-        TimeConverter tc = new TimeConverter();
-////        System.out.println(tc.dateToString(new Date()));
-        mForm new_form = new mForm();
-        new_form.setForm_id(1);
-        new_form.setEvent_name("Event01_V2");
-        new_form.setActivity("Education");
-        new_form.setDepartment("Science and Technology");
-        new_form.setCampus("Bangna");
-        new_form.setFacility("VMS0101");
-        
-        //Preparing date
-        new_form.setPreparing_date(tc.dateToString(new Date()));
-        //Starting date
-        new_form.setStarting_date("2020-04-01 09:54");
-        
-        new_form.setCoordinator_name("Tester01");
-        new_form.setCoordinator_phone_number("0123456789");
-        new_form.setDescription("N/A");
-
-        new_form.setCreated_by(1);
-        new_form.setUpdated_by(1);
-        
-        CreateProvider cp = new CreateProvider();
-        mResult result = cp.updateForm(new_form);
+        DetailsProvider dp = new DetailsProvider();
+        UserProvider up = new UserProvider();
+        int form_id = 1;
+        int supervisorID = 2;
+        int adminID = 3;
+        boolean isApprove = true;
+        mResult result = new mResult();
+        int form_type_id = up.getResponsibleFormID(supervisorID);
+        try {
+            result = dp.ApprovedForm(supervisorID, form_type_id, form_id, isApprove);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         System.out.println(result.getIsSuccess() + ": " + result.getMessage());
+//        TimeConverter tc = new TimeConverter();
+//////        System.out.println(tc.dateToString(new Date()));
+//        mForm new_form = new mForm();
+//        new_form.setForm_id(1);
+//        new_form.setEvent_name("Event01_V2");
+//        new_form.setActivity("Education");
+//        new_form.setDepartment("Science and Technology");
+//        new_form.setCampus("Bangna");
+//        new_form.setFacility("VMS0101");
+//        
+//        //Preparing date
+//        new_form.setPreparing_date(tc.dateToString(new Date()));
+//        //Starting date
+//        new_form.setStarting_date("2020-04-01 09:54");
+//        
+//        new_form.setCoordinator_name("Tester01");
+//        new_form.setCoordinator_phone_number("0123456789");
+//        new_form.setDescription("N/A");
+//
+//        new_form.setCreated_by(1);
+//        new_form.setUpdated_by(1);
+//        
+//        CreateProvider cp = new CreateProvider();
+//        mResult result = cp.updateForm(new_form);
+//        System.out.println(result.getIsSuccess() + ": " + result.getMessage());
 //        List<mFormDisplay> fds = new ListProvider().getForms(1);
 //        int i = 0;
     }
