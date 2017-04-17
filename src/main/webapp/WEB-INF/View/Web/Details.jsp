@@ -42,12 +42,12 @@
                 <span class="topic">Details</span>
                 <div class="set_float_right">
                     <c:if test="${userProfile.responsible_form_type_id == 2}">
-                        <a class="set_float_right set_btn_approve_sm" href="/Student/Create"><i class="fa fa-check" aria-hidden="true"></i> Approve</a>
-                        <a class="set_float_right set_btn_delete_sm set_margin_right_10" href="/Student/Create"><i class="fa fa-times" aria-hidden="true"></i> Reject</a>
+                        <a class="set_float_right set_btn_approve_sm" href="/Approval_JSP_Maven_2017/Student/Create"><i class="fa fa-check" aria-hidden="true"></i> Approve</a>
+                        <a class="set_float_right set_btn_delete_sm set_margin_right_10" href="/Approval_JSP_Maven_2017/Student/Create"><i class="fa fa-times" aria-hidden="true"></i> Reject</a>
                     </c:if>
                     <c:if test="${userProfile.responsible_form_type_id == 3}">
-                        <a class="set_float_right set_btn_approve_sm" href="/Student/Create"><i class="fa fa-check" aria-hidden="true"></i> Approve</a>
-                        <a class="set_float_right set_btn_delete_sm set_margin_right_10" href="/Student/Create"><i class="fa fa-times" aria-hidden="true"></i> Reject</a>
+                        <a class="set_float_right set_btn_approve_sm" href="/Approval_JSP_Maven_2017/Student/Create"><i class="fa fa-check" aria-hidden="true"></i> Approve</a>
+                        <a class="set_float_right set_btn_delete_sm set_margin_right_10" href="/Approval_JSP_Maven_2017/Student/Create"><i class="fa fa-times" aria-hidden="true"></i> Reject</a>
                     </c:if>
                 </div>
                 
