@@ -18,7 +18,7 @@ page import="Models.*;"
             <div class="container_new">
                 <span class="topic">Request for AU Service</span>
                 <%--<c:if test="${userProfile.responsible_form_type_id == 1}">--%>
-                    <a class="set_float_right set_btn_confirm_sm_backgroundWhite" href="/Approval_JSP_Maven_2017/Coordinator/Create">Create new request</a>
+                    <a class="set_float_right set_btn_confirm_sm_backgroundWhite" href="${pageContext.request.contextPath}/Coordinator/Create">Create new request</a>
                 <%--</c:if>--%>
             </div>
         </div>
@@ -33,7 +33,7 @@ page import="Models.*;"
                                         <%
                                             //FormModel formRequest = ((FormGroupModel)${request}).getFormList().get(0);
                                         %>
-                                        <a href="/Approval_JSP_Maven_2017/Coordinator/Details?id=${formDisplay.form_id}" class="box_each_requested">
+                                        <a href="${pageContext.request.contextPath}/Coordinator/Details?id=${formDisplay.form_id}" class="box_each_requested">
                                                 <div class="box_info_top">
                                                     <div class="set_float_left">
                                                         <span class="event_name">${formDisplay.event_name}</span>

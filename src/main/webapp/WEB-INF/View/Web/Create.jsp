@@ -143,7 +143,7 @@
                                                
                                                         <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                <img src="/Images/1_Properties/FoldingTableWhite.jpg" alt=""/>
+                                                                <img src="${pageContext.request.contextPath}/Images/1_Properties/FoldingTableWhite.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Folding Table White</span>
@@ -155,7 +155,7 @@
                                                         </div>
                                                    <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/1_Properties/FoldingTableRoundWhite.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/1_Properties/FoldingTableRoundWhite.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Folding Table Round White</span>
@@ -173,7 +173,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                <img src="/Images/1_Properties/ChairCrown.jpg" alt=""/>
+                                                                <img src="${pageContext.request.contextPath}/Images/1_Properties/ChairCrown.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Chair Crown</span>
@@ -185,7 +185,7 @@
                                                         </div>
                                                    <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/1_Properties/ChairSteel.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/1_Properties/ChairSteel.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Chair Steel</span>
@@ -204,7 +204,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/1_Properties/BoardMoveable.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/1_Properties/BoardMoveable.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Board Moveable</span>
@@ -223,7 +223,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/1_Properties/TableClothBlue.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/1_Properties/TableClothBlue.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Table Cloth Blue</span>
@@ -235,7 +235,7 @@
                                                         </div>
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/1_Properties/TableClothRound.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/1_Properties/TableClothRound.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Table Cloth Round</span>
@@ -273,7 +273,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/2_Technical/ExtensionCordsLenght.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/2_Technical/ExtensionCordsLenght.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Extension Cords Lenght</span>
@@ -285,7 +285,7 @@
                                                         </div>
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/2_Technical/ExtensionCordsRoll.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/2_Technical/ExtensionCordsRoll.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">ExtensionCordsRoll</span>
@@ -302,7 +302,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/2_Technical/MicrophoneWithShortStand.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/2_Technical/MicrophoneWithShortStand.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Microphone With Short Stand</span>
@@ -314,7 +314,7 @@
                                                         </div>
                                                         <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/2_Technical/MicrophoneWithStand.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/2_Technical/MicrophoneWithStand.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Microphone With Stand</span>
@@ -332,7 +332,7 @@
                                             <div class="box_choice_itemList">
                                                <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/2_Technical/PhoneOfficeWhite.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/2_Technical/PhoneOfficeWhite.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Phone Office</span>
@@ -350,7 +350,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/2_Technical/AirConditioner.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/2_Technical/AirConditioner.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Air Conditioner</span>
@@ -368,7 +368,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/2_Technical/sound1.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/2_Technical/sound1.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">sound1</span>
@@ -380,7 +380,7 @@
                                                         </div>
                                                         <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/2_Technical/sound2.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/2_Technical/sound2.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">sound2</span>
@@ -418,7 +418,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/3_Sound & Light/MicrophoneWithShortStand.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/3_Sound & Light/MicrophoneWithShortStand.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Microphone With Short Stand</span>
@@ -430,7 +430,7 @@
                                                         </div>
                                                         <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/3_Sound & Light/MicrophoneWithStand.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/3_Sound & Light/MicrophoneWithStand.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Microphone With Stand</span>
@@ -447,7 +447,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/3_Sound & Light/Projector.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/3_Sound & Light/Projector.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Projector</span>
@@ -459,7 +459,7 @@
                                                         </div>
                                                         <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/3_Sound & Light/ProjectorScreen01.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/3_Sound & Light/ProjectorScreen01.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Projector Screen</span>
@@ -496,7 +496,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/4_Arts & Culture/FoamLetters.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/4_Arts & Culture/FoamLetters.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Foam Letters</span>
@@ -514,7 +514,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/4_Arts & Culture/DirectionSign.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/4_Arts & Culture/DirectionSign.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Direction Sign</span>
@@ -552,7 +552,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/5_Security/ParkingArea.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/5_Security/ParkingArea.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Parking Area</span>
@@ -570,7 +570,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/5_Security/SecurityOfficer.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/5_Security/SecurityOfficer.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Security Officer</span>
@@ -608,7 +608,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/6_IT/Projector01.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/6_IT/Projector01.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Projector</span>
@@ -626,7 +626,7 @@
                                             <div class="box_choice_itemList">
                                                  <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/6_IT/Laptop01.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/6_IT/Laptop01.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Laptop</span>
@@ -645,7 +645,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/6_IT/Computer01.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/6_IT/Computer01.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Computer</span>
@@ -663,7 +663,7 @@
                                             <div class="box_choice_itemList">
                                                <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/6_IT/Visualizer.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/6_IT/Visualizer.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Visualizer</span>
@@ -681,7 +681,7 @@
                                             <div class="box_choice_itemList">
                                                 <div class="box_each_item">
                                                             <div class="box_image_item">
-                                                                 <img src="/Images/6_IT/ProjectorScreen01.jpg" alt=""/>
+                                                                 <img src="${pageContext.request.contextPath}/Images/6_IT/ProjectorScreen01.jpg" alt=""/>
                                                             </div>
                                                             <div class="box_info_item">
                                                                 <span class="item_name">Projector Screen</span>
