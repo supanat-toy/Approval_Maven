@@ -50,7 +50,7 @@
                         <a class="set_float_right set_btn_delete_sm set_margin_right_10" href="/Approval_JSP_Maven_2017/Student/Create"><i class="fa fa-times" aria-hidden="true"></i> Reject</a>
                     </c:if>
                 </div>
-                
+
             </div>
         </div>
         <div class="container_new">
@@ -58,33 +58,34 @@
                 <div class="box_organinzer_event set_margin_container_default_10">
                     <ul id="navtabs_create_member" class="nav_tabs_box_organinzer_event nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#Details_tab">Details</a></li>
-                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 4)}">
+                            <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 4)}">
                             <li><a data-toggle="tab" href="#Properties_tab">Properties</a></li>
-                        </c:if>
-                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 5)}">
+                            </c:if>
+                            <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 5)}">
                             <li><a data-toggle="tab" href="#Technical_tab">Technical</a></li>
-                        </c:if>
-                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 6)}">
+                            </c:if>
+                            <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 6)}">
                             <li><a data-toggle="tab" href="#SoundLight_tab">Sound & Light</a></li>
-                        </c:if>
-                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 7)}">
+                            </c:if>
+                            <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 7)}">
                             <li><a data-toggle="tab" href="#ArtsCulture_tab">Arts & Culture</a></li>
-                        </c:if>
-                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 8)}">
+                            </c:if>
+                            <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 8)}">
                             <li><a data-toggle="tab" href="#Security_tab">Security</a></li>
-                        </c:if>
-                        <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 9)}">
+                            </c:if>
+                            <c:if test="${(userProfile.responsible_form_type_id <= 3) || (userProfile.responsible_form_type_id == 9)}">
                             <li><a data-toggle="tab" href="#IT_tab">IT</a></li>
-                        </c:if>     
+                            </c:if>     
                     </ul>
                     <div class="tab_content tab-content">
-                        <div id="Details_tab" class="tab-pane fade in active">
-                            <div class="topic">
-                                <i class="fa fa-file-text-o" aria-hidden="true"></i> Details
-                            </div>
-                            <div class="details">
-                                <div class="col_percent_8 set_padding_right_15 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+                        <form action="${pageContext.servletContext.contextPath}/Coordinator/Update" method="POST" data-parsley-validate="true">
+                            <div id="Details_tab" class="tab-pane fade in active">
+                                <div class="topic">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i> Details
+                                </div>
+                                <div class="details">
+                                    <div class="col_percent_8 set_padding_right_15 set_padding_right_15">
+
                                         <div class="form_group_row">
                                             <label>Job/Activity name</label>
                                             <input name="form_name" class="form_control_textField" value="${formDetails.event_name}" data-parsley-required="true">
@@ -106,17 +107,17 @@
                                                     <input id="radio-require_form_1" name="form_place" class="radio-custom" value="Huamak" type="radio" checked>
                                                     <label for="radio-require_form_1" class="radio-custom-label"> Huamak</label>    
                                                 </div>
-                                                 <div class="box_each_checkbox_radio">
+                                                <div class="box_each_checkbox_radio">
                                                     <input id="radio-require_form_2" name="form_place" class="radio-custom" value="Bangna" type="radio">
                                                     <label for="radio-require_form_2" class="radio-custom-label"> Bangna</label>
                                                 </div>
                                             </c:if>
-                                           <c:if test="${(formDetails.campus != 'Huamak')}">
+                                            <c:if test="${(formDetails.campus != 'Huamak')}">
                                                 <div class="box_each_checkbox_radio">                                      
                                                     <input id="radio-require_form_3" name="form_place" class="radio-custom" value="Huamak" type="radio">
                                                     <label for="radio-require_form_3" class="radio-custom-label"> Huamak</label>    
                                                 </div>
-                                                 <div class="box_each_checkbox_radio">
+                                                <div class="box_each_checkbox_radio">
                                                     <input id="radio-require_form_4" name="form_place" class="radio-custom" value="Bangna" type="radio" checked>
                                                     <label for="radio-require_form_4" class="radio-custom-label"> Bangna</label>
                                                 </div>
@@ -158,22 +159,22 @@
                                                 </div>
                                             </div>
                                         </div>
-<!--                                        <div class="form_group_row">
-                                            <div class="col_percent_7 set_padding_right_15">
-                                                <label>Ending Date</label>
-                                                <div class="input-group date" id="datepicker-disabled-past_endDate" data-date-format="dd/mm/yyyy" data-date-start-date="Date.default">
-                                                    <input type="text" name="end_date" class="form_control_textField" placeholder="" data-parsley-required="true" />
-                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                </div>
-                                            </div>
-                                            <div class="col_percent_5">
-                                                <label>Ending Time</label>
-                                                <div class="input-group bootstrap-timepicker">
-                                                    <input id="timepicker_endTime" name="end_time" type="text" class="form_control_textField">
-                                                    <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>-->
+                                        <!--                                        <div class="form_group_row">
+                                                                                    <div class="col_percent_7 set_padding_right_15">
+                                                                                        <label>Ending Date</label>
+                                                                                        <div class="input-group date" id="datepicker-disabled-past_endDate" data-date-format="dd/mm/yyyy" data-date-start-date="Date.default">
+                                                                                            <input type="text" name="end_date" class="form_control_textField" placeholder="" data-parsley-required="true" />
+                                                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col_percent_5">
+                                                                                        <label>Ending Time</label>
+                                                                                        <div class="input-group bootstrap-timepicker">
+                                                                                            <input id="timepicker_endTime" name="end_time" type="text" class="form_control_textField">
+                                                                                            <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>-->
                                         <div class="form_group_row">
                                             <div class="col_percent_7 set_padding_right_15">
                                                 <label>Coordinator name</label>
@@ -192,45 +193,48 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="col_percent_4 box_side_response_part_request">
-                                    <div class="topic">
-                                        Response
+
                                     </div>
-                                    <div class="details">
-                                        <div class="box_response_each_part_requestList">
-                                            <c:forEach items="${responseMessageList_1}" var="responseMessage">
-                                                <div class="box_response_each_part_request">
-                                                    <div class="box_info_responder">
-                                                        <span class="responder_icon"></span>
-                                                        <div class="info_responder">
-                                                            <span class="responder_name">${responseMessage.form_department_name}</span>
-                                                            <span class="responder_dateTime">${responseMessage.updated_date}</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box_description_responder">
-                                                        ${responseMessage.message}
+                                    <%--
+                            <div class="col_percent_4 box_side_response_part_request">
+                                <div class="topic">
+                                    Response
+                                </div>
+                                <div class="details">
+                                    <div class="box_response_each_part_requestList">
+                                        <c:forEach items="${responseMessageList_1}" var="responseMessage">
+                                            <div class="box_response_each_part_request">
+                                                <div class="box_info_responder">
+                                                    <span class="responder_icon"></span>
+                                                    <div class="info_responder">
+                                                        <span class="responder_name">${responseMessage.form_department_name}</span>
+                                                        <span class="responder_dateTime">${responseMessage.updated_date}</span>
                                                     </div>
                                                 </div>
-                                            </c:forEach>  
-                                        </div> 
-                                        <div class="box_add_response_description">
-                                            <textarea class="form_control_textField"></textarea>
-                                            <button class="set_btn_confirm_sm_backgroundWhite set_float_right set_margin_top_10">Add Response</button>
-                                        </div>                                
-                                    </div>
+                                                <div class="box_description_responder">
+                                                    ${responseMessage.message}
+                                                </div>
+                                            </div>
+                                        </c:forEach>  
+                                    </div> 
+                                    <div class="box_add_response_description">
+                                        <textarea class="form_control_textField"></textarea>
+                                        <button class="set_btn_confirm_sm_backgroundWhite set_float_right set_margin_top_10">Add Response</button>
+                                    </div>                                
+                                </div>
 
                                 </div>
+                                    --%>
+                                </div>
                             </div>
-                        </div>
+                            <%--
                         <div id="Properties_tab" class="tab-pane fade">
                             <div class="topic">
                                 <i class="fa fa-file-text-o" aria-hidden="true"></i> Properties
                             </div>
                             <div class="details">
                                 <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+                                   
                                         <div class="form_group_row set_background_for_item">
                                             <label>Table</label>
                                             <div class="box_choice_itemList">
@@ -349,8 +353,7 @@
                                         <div class="form_footer_submit form_group_row">
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
-                                        </div>
-                                    </form>
+                                        </div> 
                                 </div>
                                 <div class="col_percent_4 box_side_response_part_request">
                                     <div class="topic">
@@ -389,7 +392,7 @@
                             </div>
                             <div class="details">
                                 <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+                                    
                                         <div class="form_group_row set_background_for_item">
                                             <label>Electricity</label>
                                             <div class="box_choice_itemList">
@@ -523,7 +526,7 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                                 <div class="col_percent_4 box_side_response_part_request">
                                     <div class="topic">
@@ -562,7 +565,7 @@
                             </div>
                             <div class="details">
                                 <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+                                  
                                         <div class="form_group_row set_background_for_item">
                                             <label>Microphone</label>
                                             <div class="box_choice_itemList">
@@ -629,7 +632,7 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
+                                   
                                 </div>
                                 <div class="col_percent_4 box_side_response_part_request">
                                     <div class="topic">
@@ -668,7 +671,7 @@
                             </div>
                             <div class="details">
                                 <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+           
                                         <div class="form_group_row set_background_for_item">
                                             <label>Foam</label>
                                             <div class="box_choice_itemList">
@@ -713,7 +716,7 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
+                                 
                                 </div>
                                 <div class="col_percent_4 box_side_response_part_request">
                                     <div class="topic">
@@ -752,7 +755,6 @@
                             </div>
                             <div class="details">
                                 <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
                                         <div class="form_group_row set_background_for_item">
                                             <label>ที่จอดรถ</label>
                                             <div class="box_choice_itemList">
@@ -797,7 +799,7 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                                 <div class="col_percent_4 box_side_response_part_request">
                                     <div class="topic">
@@ -836,7 +838,7 @@
                             </div>
                             <div class="details">
                                 <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+                              
                                         <div class="form_group_row set_background_for_item">
                                             <label>LCD Projector</label>
                                             <div class="box_choice_itemList">
@@ -936,7 +938,7 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
+                                  
                                 </div>
                                 <div class="col_percent_4 box_side_response_part_request">
                                     <div class="topic">
@@ -969,6 +971,8 @@
                                 </div>
                             </div>
                         </div>
+                            --%>
+                        </form>
                     </div>
                 </div>
             </div>

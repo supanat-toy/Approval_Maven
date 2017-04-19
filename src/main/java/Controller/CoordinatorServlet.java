@@ -120,22 +120,22 @@ public class CoordinatorServlet extends HttpServlet {
             
         } else if (userPath.equals("/Coordinator/Create")) {
             int id = userProfile.getUser_id();
-            String event_name = request.getAttribute("form_name").toString();
-            String activity = request.getAttribute("form_activity_type").toString();
-            String department = request.getAttribute("form_department").toString();
-            String campus = request.getAttribute("form_place").toString();
-            String facility = request.getAttribute("form_room").toString();
+            String event_name = request.getParameter("form_name");
+            String activity = request.getParameter("form_activity_type");
+            String department = request.getParameter("form_department");
+            String campus = request.getParameter("form_place");
+            String facility = request.getParameter("form_room");
             
-            String preparing_date = request.getAttribute("pre_start_date").toString();
-            String preparing_time = request.getAttribute("pre_start_time").toString();
-            String starting_date = request.getAttribute("start_date").toString();
-            String starting_time = request.getAttribute("start_time").toString();
+            String preparing_date = request.getParameter("pre_start_date");
+            String preparing_time = request.getParameter("pre_start_time");
+            String starting_date = request.getParameter("start_date");
+            String starting_time = request.getParameter("start_time");
             //String end_date = request.getAttribute("end_date").toString();
             //String end_time = request.getAttribute("end_time").toString();
             
-            String coordinator_name = request.getAttribute("coordinator_name").toString();
-            String coordinator_phone_number = request.getAttribute("coordinator_phone").toString();
-            String description = request.getAttribute("0_description").toString();
+            String coordinator_name = request.getParameter("coordinator_name");
+            String coordinator_phone_number = request.getParameter("coordinator_phone");
+            String description = request.getParameter("0_description");
             
             mForm new_form = new mForm();
             new_form.setEvent_name(event_name);
@@ -156,7 +156,7 @@ public class CoordinatorServlet extends HttpServlet {
             
             new_form.setCreated_by(id);
             new_form.setUpdated_by(id);
-            
+            int i = 0;
             mResult result = createProvider.submitRequest(new_form);
             
             if(result.getIsSuccess()){
@@ -166,22 +166,22 @@ public class CoordinatorServlet extends HttpServlet {
         } else if (userPath.equals("/Coordinator/Details")) {
             int form_id = Integer.parseInt(request.getParameter("id"));
             int id = userProfile.getUser_id();
-            String event_name = request.getAttribute("form_name").toString();
-            String activity = request.getAttribute("form_activity_type").toString();
-            String department = request.getAttribute("form_department").toString();
-            String campus = request.getAttribute("form_place").toString();
-            String facility = request.getAttribute("form_room").toString();
+            String event_name = request.getParameter("form_name");
+            String activity = request.getParameter("form_activity_type");
+            String department = request.getParameter("form_department");
+            String campus = request.getParameter("form_place");
+            String facility = request.getParameter("form_room");
             
-            String preparing_date = request.getAttribute("pre_start_date").toString();
-            String preparing_time = request.getAttribute("pre_start_time").toString();
-            String starting_date = request.getAttribute("start_date").toString();
-            String starting_time = request.getAttribute("start_time").toString();
+            String preparing_date = request.getParameter("pre_start_date");
+            String preparing_time = request.getParameter("pre_start_time");
+            String starting_date = request.getParameter("start_date");
+            String starting_time = request.getParameter("start_time");
             //String end_date = request.getAttribute("end_date").toString();
             //String end_time = request.getAttribute("end_time").toString();
             
-            String coordinator_name = request.getAttribute("coordinator_name").toString();
-            String coordinator_phone_number = request.getAttribute("coordinator_phone").toString();
-            String description = request.getAttribute("0_description").toString();
+            String coordinator_name = request.getParameter("coordinator_name");
+            String coordinator_phone_number = request.getParameter("coordinator_phone");
+            String description = request.getParameter("0_description");
             
             mForm updated_form = detailsProvider.getFormDetails(form_id);
             

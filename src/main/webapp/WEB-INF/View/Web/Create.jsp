@@ -21,13 +21,14 @@
                         <li><a data-toggle="tab" href="#IT_tab">IT</a></li>
                     </ul>
                     <div class="tab_content tab-content">
-                        <div id="Details_tab" class="tab-pane fade in active">
-                            <div class="topic">
-                                <i class="fa fa-file-text-o" aria-hidden="true"></i> Details
-                            </div>
-                            <div class="details">
-                                <div class="col_percent_8 set_padding_right_15 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+                        <form action="${pageContext.servletContext.contextPath}/Coordinator/Create" method="POST" data-parsley-validate="true">
+                            <div id="Details_tab" class="tab-pane fade in active">
+                                <div class="topic">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i> Details
+                                </div>
+                                <div class="details">
+                                    <div class="col_percent_8 set_padding_right_15 set_padding_right_15">
+
                                         <div class="form_group_row">
                                             <label>Job/Activity name</label>
                                             <input name="form_name" class="form_control_textField" value="${formDetails.event_name}" data-parsley-required="true">
@@ -89,22 +90,22 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form_group_row">
-                                            <div class="col_percent_7 set_padding_right_15">
-                                                <label>Ending Date</label>
-                                                <div class="input-group date" id="datepicker-disabled-past_endDate" data-date-format="dd/mm/yyyy" data-date-start-date="Date.default">
-                                                    <input type="text" name="end_date" class="form_control_textField" placeholder="" data-parsley-required="true" />
-                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                </div>
-                                            </div>
-                                            <div class="col_percent_5">
-                                                <label>Ending Time</label>
-                                                <div class="input-group bootstrap-timepicker">
-                                                    <input id="timepicker_endTime" name="end_time" type="text" class="form_control_textField">
-                                                    <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <!--                                        <div class="form_group_row">
+                                                                                    <div class="col_percent_7 set_padding_right_15">
+                                                                                        <label>Ending Date</label>
+                                                                                        <div class="input-group date" id="datepicker-disabled-past_endDate" data-date-format="dd/mm/yyyy" data-date-start-date="Date.default">
+                                                                                            <input type="text" name="end_date" class="form_control_textField" placeholder="" data-parsley-required="true" />
+                                                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col_percent_5">
+                                                                                        <label>Ending Time</label>
+                                                                                        <div class="input-group bootstrap-timepicker">
+                                                                                            <input id="timepicker_endTime" name="end_time" type="text" class="form_control_textField">
+                                                                                            <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>-->
                                         <div class="form_group_row">
                                             <div class="col_percent_7 set_padding_right_15">
                                                 <label>Coordinator name</label>
@@ -123,48 +124,49 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="col_percent_4">
-                                  
+
+                                    </div>
+                                    <div class="col_percent_4">
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="Properties_tab" class="tab-pane fade">
-                            <div class="topic">
-                                <i class="fa fa-file-text-o" aria-hidden="true"></i> Properties
-                            </div>
-                            <div class="details">
-                                <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
-                                        <div class="form_group_row set_background_for_item">
-                                            <label>Table</label>
-                                            <div class="box_choice_itemList">
-                                               
-                                                        <div class="box_each_item">
-                                                            <div class="box_image_item">
-                                                                <img src="/Images/1_Properties/FoldingTableWhite.jpg" alt=""/>
-                                                            </div>
-                                                            <div class="box_info_item">
-                                                                <span class="item_name">Folding Table White</span>
-                                                                <div class="box_item_input">
-                                                                    <input name="1_FoldingTableWhite" class="input_item_quanlity form_control_textField" />
-                                                                    <span class="item_unit">ตัว</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                   <div class="box_each_item">
-                                                            <div class="box_image_item">
-                                                                 <img src="/Images/1_Properties/FoldingTableRoundWhite.jpg" alt=""/>
-                                                            </div>
-                                                            <div class="box_info_item">
-                                                                <span class="item_name">Folding Table Round White</span>
-                                                                <div class="box_item_input">
-                                                                    <input name="1_FoldingTableRoundWhite" class="input_item_quanlity form_control_textField" />
-                                                                    <span class="item_unit">ตัว</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                            <%--                
+        <div id="Properties_tab" class="tab-pane fade">
+            <div class="topic">
+                <i class="fa fa-file-text-o" aria-hidden="true"></i> Properties
+            </div>
+            <div class="details">
+                <div class="col_percent_8 set_padding_right_15">
+             
+                        <div class="form_group_row set_background_for_item">
+                            <label>Table</label>
+                            <div class="box_choice_itemList">
+                               
+                                        <div class="box_each_item">
+                                            <div class="box_image_item">
+                                                <img src="/Images/1_Properties/FoldingTableWhite.jpg" alt=""/>
+                                            </div>
+                                            <div class="box_info_item">
+                                                <span class="item_name">Folding Table White</span>
+                                                <div class="box_item_input">
+                                                    <input name="1_FoldingTableWhite" class="input_item_quanlity form_control_textField" />
+                                                    <span class="item_unit">ตัว</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                   <div class="box_each_item">
+                                            <div class="box_image_item">
+                                                 <img src="/Images/1_Properties/FoldingTableRoundWhite.jpg" alt=""/>
+                                            </div>
+                                            <div class="box_info_item">
+                                                <span class="item_name">Folding Table Round White</span>
+                                                <div class="box_item_input">
+                                                    <input name="1_FoldingTableRoundWhite" class="input_item_quanlity form_control_textField" />
+                                                    <span class="item_unit">ตัว</span>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                             </div>
                                         </div>
@@ -256,7 +258,7 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                                 <div class="col_percent_4"></div>
                             </div>
@@ -267,7 +269,7 @@
                             </div>
                             <div class="details">
                                 <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+                                   
                                         <div class="form_group_row set_background_for_item">
                                             <label>Electricity</label>
                                             <div class="box_choice_itemList">
@@ -401,7 +403,7 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                                 <div class="col_percent_4"></div>
                             </div>
@@ -412,7 +414,7 @@
                             </div>
                             <div class="details">
                                 <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+                                   
                                         <div class="form_group_row set_background_for_item">
                                             <label>Microphone</label>
                                             <div class="box_choice_itemList">
@@ -479,7 +481,7 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                                 <div class="col_percent_4"></div>
                             </div>
@@ -490,7 +492,7 @@
                             </div>
                             <div class="details">
                                 <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+                                   
                                         <div class="form_group_row set_background_for_item">
                                             <label>Foam</label>
                                             <div class="box_choice_itemList">
@@ -535,7 +537,7 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                                 <div class="col_percent_4"></div>
                             </div>
@@ -546,7 +548,7 @@
                             </div>
                             <div class="details">
                                 <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+                                
                                         <div class="form_group_row set_background_for_item">
                                             <label>ที่จอดรถ</label>
                                             <div class="box_choice_itemList">
@@ -591,7 +593,7 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                                 <div class="col_percent_4"></div>
                             </div>
@@ -602,7 +604,7 @@
                             </div>
                             <div class="details">
                                 <div class="col_percent_8 set_padding_right_15">
-                                    <form action="#" method="POST" data-parsley-validate="true">
+                                  
                                         <div class="form_group_row set_background_for_item">
                                             <label>LCD Projector</label>
                                             <div class="box_choice_itemList">
@@ -702,11 +704,12 @@
                                             <a href="#event_imagesDescription_tab" onclick="SetNavBarActiveURL()" class="set_btn_confirm_md_backgroundWhite" type="submit">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <button class="set_btn_confirm_md set_float_right" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                                         </div>
-                                    </form>
                                 </div>
                                 <div class="col_percent_4"></div>
                             </div>
                         </div>
+                            --%>
+                        </form>
                     </div>
                 </div>
             </div>
