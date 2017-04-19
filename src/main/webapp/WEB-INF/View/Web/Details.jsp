@@ -78,7 +78,8 @@
                             </c:if>     
                     </ul>
                     <div class="tab_content tab-content">
-                        <form action="${pageContext.servletContext.contextPath}/Coordinator/Update" method="POST" data-parsley-validate="true">
+                        <form action="${pageContext.servletContext.contextPath}/Coordinator/Details" method="POST" data-parsley-validate="true">
+                            <input name="id" value="${formDetails.form_id}" style="display:none;" />
                             <div id="Details_tab" class="tab-pane fade in active">
                                 <div class="topic">
                                     <i class="fa fa-file-text-o" aria-hidden="true"></i> Details
@@ -138,7 +139,7 @@
                                             <div class="col_percent_5">
                                                 <label>Preparation Time</label>
                                                 <div class="input-group bootstrap-timepicker">
-                                                    <input id="timepicker_pre_startTime" name="pre_start_time" type="text" value="${formDetails.preparing_date}" class="form_control_textField">
+                                                    <input id="timepicker_pre_startTime" name="pre_start_time" type="text" value="${formDetails.preparing_time}" class="form_control_textField">
                                                     <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                                 </div>
                                             </div>
@@ -154,7 +155,7 @@
                                             <div class="col_percent_5">
                                                 <label>Starting Time</label>
                                                 <div class="input-group bootstrap-timepicker">
-                                                    <input id="timepicker_startTime" name="start_time" type="text" value="${formDetails.starting_date}" class="form_control_textField">
+                                                    <input id="timepicker_startTime" name="start_time" type="text" value="${formDetails.starting_time}" class="form_control_textField">
                                                     <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                                 </div>
                                             </div>

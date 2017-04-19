@@ -33,13 +33,26 @@ public class DetailsProvider {
         try {
             ResultSet result = DBUtils.getPreparedStatement("select * from form where form.form_id = " + form_id).executeQuery();
             while (result.next()) {
+                form.setForm_id(result.getInt("form_id"));
                 form.setEvent_name(result.getString("event_name"));
                 form.setActivity(result.getString("activity"));
                 form.setDepartment(result.getString("department"));
                 form.setCampus(result.getString("campus"));
                 form.setFacility(result.getString("facility"));
-                form.setPreparing_date(result.getString("preparing_date"));
-                form.setStarting_date(result.getString("starting_date"));
+                String preparing_date = result.getString("preparing_date");
+                String starting_date = result.getString("starting_date");
+                String[] pdt = preparing_date.split(" ");
+                String pd = pdt[0];
+                String pt = pdt[1];
+                String new_pt = pt.substring(0, pt.indexOf("."));
+                String[] sdt = starting_date.split(" ");
+                String sd = sdt[0];
+                String st = sdt[1];
+                String new_st = st.substring(0, st.indexOf("."));
+                form.setPreparing_date(pd);
+                form.setPreparing_time(new_pt);
+                form.setStarting_date(sd);
+                form.setStarting_time(new_st);
                 form.setCoordinator_name(result.getString("coordinator_name"));
                 form.setCoordinator_phone_number(result.getString("coordinator_phone_number"));
                 form.setDescription(result.getString("description"));
@@ -53,7 +66,6 @@ public class DetailsProvider {
                 form.setApproved_date_admin(result.getString("approved_date_admin"));
                 form.setApproved_by_admin(result.getInt("approved_by_admin"));
                 form.setIs_approved_admin(result.getBoolean("is_approved_admin"));
-                form.setStarting_date(result.getString("starting_date"));
                 break;
             }
         } catch (Exception e) {

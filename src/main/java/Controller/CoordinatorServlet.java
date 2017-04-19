@@ -162,7 +162,6 @@ public class CoordinatorServlet extends HttpServlet {
             if(result.getIsSuccess()){
                 userPath = "/Coordinator/List";
             }
-            
         } else if (userPath.equals("/Coordinator/Details")) {
             int form_id = Integer.parseInt(request.getParameter("id"));
             int id = userProfile.getUser_id();

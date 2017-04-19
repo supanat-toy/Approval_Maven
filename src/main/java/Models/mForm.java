@@ -22,7 +22,9 @@ public class mForm {
     private String campus;
     private String facility;
     private String preparing_date;
+    private String preparing_time;
     private String starting_date;
+    private String starting_time;
     private String coordinator_name;
     private String coordinator_phone_number;
     private String description;
@@ -226,6 +228,22 @@ public class mForm {
 
     public void setIs_delete(boolean is_delete) {
         this.is_delete = is_delete;
+    }
+
+    public String getPreparing_time() {
+        return preparing_time;
+    }
+
+    public void setPreparing_time(String preparing_time) {
+        this.preparing_time = preparing_time;
+    }
+
+    public String getStarting_time() {
+        return starting_time;
+    }
+
+    public void setStarting_time(String starting_time) {
+        this.starting_time = starting_time;
     }
     
     
